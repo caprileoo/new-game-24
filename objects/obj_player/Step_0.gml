@@ -28,14 +28,24 @@ x += x_speed;
 
 #region Y Movement
 // Gravity
-y_speed += grav;
+if ( coyote_hang_timer > 0 ){
+	// Count the timer down
+	coyote_hang_timer--;
+} else {
+	// Apply gravity to the player
+	y_speed += grav;
+	// No longer on ground
+	setOnGround(false);
+}
 
 // Reset/Prepare jumping variables
 if (on_ground){
 	jump_count = 0;
-	jump_hold_timer = 0;
+	coyote_jump_timer = coyote_jump_frames;
 } else {
-	if ( jump_count == 0 ) { jump_count = 1; }
+	// If the player is in the air, make sure they can't do extra jump
+	coyote_jump_timer--;
+	if ( jump_count == 0 && coyote_jump_timer <= 0 ) { jump_count = 1; }
 }
 
 // Initiate the Jump
@@ -49,6 +59,12 @@ if ( jump_key_buffered && jump_count < jump_max ){
 	
 	// Set the jump hold timer
 	jump_hold_timer = jump_hold_frames;
+	
+	// Alert that i'm no longer on ground
+	setOnGround(false);
+	
+	// Reset the timer
+	coyote_jump_timer = 0;
 }
 
 // Jump based on the timer/holding the button
@@ -90,8 +106,8 @@ if( place_meeting( x, y + y_speed, obj_wall) ){
 
 // Set if i'm on the ground
 if ( y_speed >= 0 && place_meeting( x, y + 1, obj_wall) ){
-	on_ground = true;
-} else on_ground = false;
+	setOnGround(true);
+}
 
 // Move
 y += y_speed;

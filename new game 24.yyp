@@ -36,9 +36,11 @@
   },
   "name":"new game 24",
   "resources":[
-    {"id":{"name":"obj_controls","path":"objects/obj_controls/obj_controls.yy",},},
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
+    {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
+    {"id":{"name":"Init","path":"rooms/Init/Init.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
@@ -47,6 +49,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Init","path":"rooms/Init/Init.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "templateType":"game",
