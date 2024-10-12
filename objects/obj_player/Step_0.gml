@@ -5,8 +5,12 @@ getControls();
 // Direction
 move_dir = right_key - left_key;
 
+// Get my face
+if move_dir != 0 { face = move_dir; }
+
 // Get x_speed
-x_speed = move_dir * move_speed;
+run_type = run_key;
+x_speed = move_dir * move_speed[run_type];
 
 // X Collision
 var _sub_pixels = .5; // How close we can get close to the wall
@@ -111,4 +115,17 @@ if ( y_speed >= 0 && place_meeting( x, y + 1, obj_wall) ){
 
 // Move
 y += y_speed;
+#endregion
+
+#region Sprite control
+// Walking
+if ( abs(x_speed) > 0 ) { sprite_index = walk_sprite; }
+// Running
+if ( abs(x_speed) >= move_speed[1] ) { sprite_index = run_sprite; }
+// Idle
+if ( x_speed == 0 ) { sprite_index = idle_sprite; }
+// Jump
+if ( !on_ground ) { sprite_index = jump_sprite; }
+// Set the collision mask
+mask_index = mask_sprite;
 #endregion

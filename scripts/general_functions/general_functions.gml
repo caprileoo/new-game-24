@@ -20,6 +20,9 @@ function getControls(){
 	jump_key = keyboard_check(vk_space) + gamepad_button_check( 0, gp_face1 );
 	jump_key = clamp( jump_key, 0, 1 );
 	
+	run_key = keyboard_check(vk_shift) + gamepad_button_check( 0, gp_face3 );
+	run_key = clamp( run_key, 0, 1 );
+	
 	//Jump key buffering
 	if (jump_key_pressed){
 		jump_key_buffer_timer = buffer_time;
