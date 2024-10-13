@@ -6,8 +6,8 @@
   "name":"obj_controller",
   "overriddenProperties":[],
   "parent":{
-    "name":"Testing Object",
-    "path":"folders/Objects/Testing Object.yy",
+    "name":"Persistent Objects",
+    "path":"folders/Objects/Persistent Objects.yy",
   },
   "parentObjectId":null,
   "persistent":true,

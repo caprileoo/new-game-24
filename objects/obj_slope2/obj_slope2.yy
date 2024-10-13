@@ -9,8 +9,8 @@
   "name":"obj_slope2",
   "overriddenProperties":[],
   "parent":{
-    "name":"Wall & Slope",
-    "path":"folders/Objects/Testing Object/Wall & Slope.yy",
+    "name":"Structures",
+    "path":"folders/Objects/Structures.yy",
   },
   "parentObjectId":{
     "name":"obj_slope",
