@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.4.0.137",
   },
   "name":"new game 24",
   "resources":[
@@ -50,7 +50,8 @@
     {"id":{"name":"obj_slope2","path":"objects/obj_slope2/obj_slope2.yy",},},
     {"id":{"name":"obj_slope3","path":"objects/obj_slope3/obj_slope3.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
-    {"id":{"name":"Init","path":"rooms/Init/Init.yy",},},
+    {"id":{"name":"rm_devroom","path":"rooms/rm_devroom/rm_devroom.yy",},},
+    {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
     {"id":{"name":"spr_moving_semi_solid_wall","path":"sprites/spr_moving_semi_solid_wall/spr_moving_semi_solid_wall.yy",},},
@@ -72,8 +73,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Init","path":"rooms/Init/Init.yy",},},
+    {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_devroom","path":"rooms/rm_devroom/rm_devroom.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
