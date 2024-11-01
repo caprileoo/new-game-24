@@ -13,6 +13,9 @@ function getControls(){
 	right_key = keyboard_check(ord("D")) + gamepad_button_check( 0, gp_padr );
 	right_key = clamp( right_key, 0, 1 );
 	
+	down_key = keyboard_check(ord("S")) + gamepad_button_check( 0, gp_padd );
+	down_key = clamp( down_key, 0, 1 );
+	
 	//Action inputs
 	jump_key_pressed = keyboard_check_pressed(vk_space) + gamepad_button_check_pressed( 0, gp_face1 );
 	jump_key_pressed = clamp( jump_key_pressed, 0, 1 );

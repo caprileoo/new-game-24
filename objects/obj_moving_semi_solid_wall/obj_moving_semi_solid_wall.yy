@@ -1,7 +1,10 @@
 {
   "$GMObject":"",
   "%Name":"obj_moving_semi_solid_wall",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_moving_semi_solid_wall",
   "overriddenProperties":[],
@@ -9,7 +12,10 @@
     "name":"Structures",
     "path":"folders/Objects/Structures.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_semi_solid_wall",
+    "path":"objects/obj_semi_solid_wall/obj_semi_solid_wall.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

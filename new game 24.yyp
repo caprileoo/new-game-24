@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.4.0.137",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"new game 24",
   "resources":[
@@ -52,7 +52,6 @@
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"rm_devroom","path":"rooms/rm_devroom/rm_devroom.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
     {"id":{"name":"spr_moving_semi_solid_wall","path":"sprites/spr_moving_semi_solid_wall/spr_moving_semi_solid_wall.yy",},},
     {"id":{"name":"spr_npc_all","path":"sprites/spr_npc_all/spr_npc_all.yy",},},
@@ -74,7 +73,6 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"rm_devroom","path":"rooms/rm_devroom/rm_devroom.yy",},},
   ],
   "templateType":"game",
