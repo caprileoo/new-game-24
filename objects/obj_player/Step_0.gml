@@ -218,7 +218,7 @@ if on_ground
 }
 
 // Initiate the Jump
-if jump_key_buffered && !down_key && jump_count < jump_max 
+if jump_key_buffered && !down_key && jump_count < jump_max && !crouching
 {
 	// Reset the buffer
 	jump_key_buffered = false;

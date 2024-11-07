@@ -64,7 +64,7 @@ move_dir = 0; // Don't touch
 run_type = 0; // Don't touch
 move_speed[0] = 2; // Normal Movement Speed
 move_speed[1] = 3.5; // Movement Speed when sprint (or walk)
-crouch_move_speed = .8; // Crouch movement speed
+crouch_move_speed = 1.2; // Crouch movement speed
 x_speed = 0; // Don't touch
 y_speed = 0; // Don't touch
 
