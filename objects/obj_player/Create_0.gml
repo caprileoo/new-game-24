@@ -54,7 +54,9 @@ idle_sprite = spr_player_idle; // Idle Sprite
 walk_sprite = spr_player_walk; // Walk Sprite
 run_sprite = spr_player_run; // Run Sprite
 jump_sprite = spr_player_jump; // Jump Sprite
+fall_sprite = spr_player_fall; // Fall Sprite
 crouch_sprite = spr_player_crouch; // Crouch Sprite
+roll_sprite = spr_player_roll; // Roll Sprite
 
 // Moving
 face = 1; // Don't touch
@@ -62,8 +64,12 @@ move_dir = 0; // Don't touch
 run_type = 0; // Don't touch
 move_speed[0] = 2; // Normal Movement Speed
 move_speed[1] = 3.5; // Movement Speed when sprint (or walk)
+crouch_move_speed = .8; // Crouch movement speed
 x_speed = 0; // Don't touch
 y_speed = 0; // Don't touch
+
+// State variables
+crouching = false;
 
 // Jumping
 grav = .275; // Gravity
@@ -85,6 +91,9 @@ coyote_jump_timer = 0; // Don't touch
 
 // Moving Platforms
 my_floor_plat = noone;
+early_move_plat_x_speed = false;
 down_slop_semi_solid = noone;
 forget_semi_solid = noone;
 move_plat_x_speed = 0;
+//crush_timer = 0;
+//crush_death_time = 3;

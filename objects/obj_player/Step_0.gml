@@ -1,6 +1,130 @@
 // Load Controls
 getControls();
 
+#region Behavior against moving wall
+// Get out of solid move_plats that have positioned themselves into the player in the begin step
+var _right_wall = noone;
+var _left_wall = noone;
+var _bottom_wall = noone;
+var _top_wall = noone;
+var _list = ds_list_create();
+var _list_size = instance_place_list( x, y, obj_moving_plat, _list, false );
+// Loop through all colliding move plats
+for( var i = 0; i < _list_size; i++ )
+{
+	var _list_inst = _list[| i];
+	
+	// Find closest walls in each direction
+	// Right walls
+	if _list_inst.bbox_left - _list_inst.x_speed >= bbox_right - 1
+	{
+		if !instance_exists(_right_wall) || _list_inst.bbox_left < _right_wall.bbox_left
+		{
+			_right_wall = _list_inst;
+		}
+	}
+	// Left walls
+	if _list_inst.bbox_right - _list_inst.x_speed <= bbox_left + 1
+	{
+		if !instance_exists(_left_wall) || _list_inst.bbox_right > _left_wall.bbox_right
+		{
+			_left_wall = _list_inst;
+		}
+	}
+	// Bottom walls
+	if _list_inst.bbox_top - _list_inst.y_speed >= bbox_bottom - 1
+	{
+		if !_bottom_wall || _list_inst.bbox_top < _bottom_wall.bbox_top
+		{
+			_bottom_wall = _list_inst;
+		}
+	}
+	// Top walls
+	if _list_inst.bbox_bottom - _list_inst.y_speed <= bbox_top + 1
+	{
+		if !_top_wall || _list_inst.bbox_bottom > _top_wall
+		{
+			_top_wall = _list_inst;
+		}
+	}
+}
+
+// Destroy the ds list to free memory
+ds_list_destroy(_list);
+
+// Get out of the walls
+// Right wall
+if instance_exists(_right_wall)
+{
+	var _right_dist = bbox_right - x;
+	x = _right_wall.bbox_left - _right_dist;
+}
+// Left wall
+if instance_exists(_left_wall)
+{
+	var _left_dist = x - bbox_left;
+	x = _left_wall.bbox_right + _left_dist;
+}
+// Bottom wall
+if instance_exists(_bottom_wall)
+{
+	var _bottom_dist = bbox_bottom - y;
+	y = _bottom_wall.bbox_top - _bottom_dist;
+}
+// Top wall
+if instance_exists(_top_wall)
+{
+	var _up_dist = y - bbox_top;
+	var _target_y = _top_wall.bbox_bottom + _up_dist;
+	// Check if there isn't a wall in the way
+	if !place_meeting( x, _target_y, obj_wall )
+	{
+		y = _target_y;
+	}
+}
+
+// Don't get left behind by my move_plat!!!
+early_move_plat_x_speed = false;
+if instance_exists(my_floor_plat) && my_floor_plat.x_speed != 0 && !place_meeting( x, y + terminal_vel + 1, my_floor_plat )
+{
+	var _x_check = my_floor_plat.x_speed;
+	// Go ahead and move our_selves back onto that platform if there is no wall in the way
+	if !place_meeting( x + _x_check, y, obj_wall )
+	{
+		x += _x_check;
+		early_move_plat_x_speed = true;
+	}
+}
+#endregion
+
+#region Crouching
+// Transition to crouch
+// Manual
+if down_key && instance_exists(my_floor_plat)
+{
+	crouching = true;
+}
+// Change collision mask
+if crouching { mask_index = crouch_sprite; };
+// Transition out of crouching
+// Manual
+if crouching && !down_key
+{
+	// Check if i can uncrouch
+	mask_index = idle_sprite;
+	// Uncrouch if no solid wall in the way
+	if !place_meeting(x, y, obj_wall)
+	{
+		crouching = false;
+	}
+	// Go back to crouching mask index if we can't uncrouch
+	else
+	{
+		mask_index = crouch_sprite;
+	}
+}
+#endregion
+
 #region X Movement
 // Direction
 move_dir = right_key - left_key;
@@ -11,6 +135,9 @@ if move_dir != 0 { face = move_dir; }
 // Get x_speed
 run_type = run_key;
 x_speed = move_dir * move_speed[run_type];
+
+// Crouch and move
+if crouching { x_speed = move_dir * crouch_move_speed; };
 
 // X Collision
 var _sub_pixels = .5; // How close we can get close to the wall
@@ -253,7 +380,7 @@ if down_key && jump_key_pressed
 }
 
 // Move
-y += y_speed;
+if !place_meeting( x, y + y_speed, obj_wall ){ y += y_speed; };
 
 // Reset forget_semi_solid variable
 if instance_exists(forget_semi_solid) && !place_meeting(x, y, forget_semi_solid)
@@ -268,24 +395,29 @@ move_plat_x_speed = 0;
 if instance_exists(my_floor_plat) { move_plat_x_speed = my_floor_plat.x_speed; };
 
 // Move with move_plat_x_speed
-if place_meeting( x + move_plat_x_speed, y, obj_wall )
+if !early_move_plat_x_speed
 {
-	// Scoot up to wall precisely
-	var _sub_pixels = .5;
-	var _pixel_check = _sub_pixels * sign(move_plat_x_speed);
-	while !place_meeting( x + _pixel_check, y, obj_wall )
+	if place_meeting( x + move_plat_x_speed, y, obj_wall )
 	{
-		x += _pixel_check;
+		// Scoot up to wall precisely
+		var _sub_pixels = .5;
+		var _pixel_check = _sub_pixels * sign(move_plat_x_speed);
+		while !place_meeting( x + _pixel_check, y, obj_wall )
+		{
+			x += _pixel_check;
+		}
+		// Set move_plat_x_speed to 0 to finish collision
+		move_plat_x_speed = 0;
 	}
-	// Set move_plat_x_speed to 0 to finish collision
-	move_plat_x_speed = 0;
+	// Move
+	x += move_plat_x_speed;
 }
-// Move
-x += move_plat_x_speed;
 
 // Y - Snap myself to my floor platform
 if instance_exists(my_floor_plat) // Add other kind of moving object into this as you update
 && ( my_floor_plat.y_speed != 0
+|| my_floor_plat.object_index == obj_moving_plat
+|| object_is_ancestor(my_floor_plat.object_index, obj_moving_plat)
 || my_floor_plat.object_index == obj_moving_semi_solid_wall
 || object_is_ancestor(my_floor_plat.object_index, obj_moving_semi_solid_wall) )
 {
@@ -296,24 +428,59 @@ if instance_exists(my_floor_plat) // Add other kind of moving object into this a
 		y = my_floor_plat.bbox_top;
 	}
 	
-	// Going up into a solid wall while on a semisolid platform
-	if my_floor_plat.y_speed < 0 && place_meeting( x, y + my_floor_plat.y_speed, obj_wall )
-	{
-		// Get pushed down through the semisolid floor platform
-		if my_floor_plat.object_index == obj_semi_solid_wall || object_is_ancestor(my_floor_plat.object_index, obj_semi_solid_wall)
-		{
-			// Get pushed down through the semisolid
-			var _sub_pixels = .25;
-			while place_meeting( x, y + my_floor_plat.y_speed, obj_wall ) { y += _sub_pixels; };
-			// If we got pushed into a solid wall while going downwards, push ourselves back out
-			while place_meeting( x, y, obj_wall ){ y -= _sub_pixels; };
-			y = round(y);
-		}
+	// Going up into a solid wall while on a semisolid platform (This code block maybe redundant but still don't delete it!!!)
+	//if my_floor_plat.y_speed < 0 && place_meeting( x, y + my_floor_plat.y_speed, obj_wall )
+	//{
+	//	// Get pushed down through the semisolid floor platform
+	//	if my_floor_plat.object_index == obj_semi_solid_wall || object_is_ancestor(my_floor_plat.object_index, obj_semi_solid_wall)
+	//	{
+	//		// Get pushed down through the semisolid
+	//		var _sub_pixels = .25;
+	//		while place_meeting( x, y + my_floor_plat.y_speed, obj_wall ) { y += _sub_pixels; };
+	//		// If we got pushed into a solid wall while going downwards, push ourselves back out
+	//		while place_meeting( x, y, obj_wall ){ y -= _sub_pixels; };
+	//		y = round(y);
+	//	}
 		
-		// Cancel the my_floor_plat variable
-		setOnGround(false);
-	}
+	//	// Cancel the my_floor_plat variable
+	//	setOnGround(false);
+	//}
 }
+
+// Get pushed down through a semisolid by a moving solid platform
+if instance_exists(my_floor_plat)
+&& ( my_floor_plat.object_index == obj_semi_solid_wall || object_is_ancestor(my_floor_plat.object_index, obj_semi_solid_wall) )
+&& place_meeting( x, y, obj_wall )
+{
+	// If i'm already stuck in a wall at this point, try and move me down to get below a semisolid
+	// If i'm still stuck afterwards, that just means i've been properly "crushed"
+	
+	// Also, don't check too far, we don't want to warp below walls
+	var _max_push_dist = 10;
+	var _pushed_dist = 0;
+	var  _start_y = y;
+	while place_meeting( x, y, obj_wall ) && _pushed_dist <= _max_push_dist
+	{
+		y++;
+		_pushed_dist++;
+	}
+	setOnGround(false);
+	
+	// If i'm still in a wall at this point, i've been crushed regardless, take me back to my start y to avoid the funk
+	if _pushed_dist > _max_push_dist { y = _start_y; };
+}
+
+// Death trigger by "Being crushed"
+//if place_meeting(x, y, obj_wall)
+//{
+//	crush_timer++;
+//	if crush_timer > crush_death_time
+//	{
+//		instance_destroy();
+//	}
+//} else{
+//	crush_timer = 0;
+//}
 #endregion
 
 #region Sprite control
@@ -323,8 +490,25 @@ if abs(x_speed) > 0 { sprite_index = walk_sprite; };
 if abs(x_speed) >= move_speed[1] { sprite_index = run_sprite; };
 // Idle
 if x_speed == 0 { sprite_index = idle_sprite; };
-// Jump
-if !on_ground { sprite_index = jump_sprite; };
+// Jumping and Falling 
+if !on_ground 
+{
+	if y_speed < 0 { sprite_index = jump_sprite; } else { sprite_index = fall_sprite; }
+	
+}
+// Crouching
+if crouching
+{
+	if abs(x_speed) > 0
+	{
+		sprite_index = roll_sprite;
+	}
+	else
+	{
+		sprite_index = crouch_sprite;
+	}
+}
 // Set the collision mask
 mask_index = mask_sprite;
+if crouching { mask_index = crouch_sprite; };
 #endregion
