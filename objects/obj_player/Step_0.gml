@@ -266,10 +266,10 @@ if y_speed < 0 && place_meeting( x, y + y_speed, obj_wall )
 	}
 	
 	// Bonk code (OPTIONAL)
-	//if ( y_speed < 0 )
-	//{
-	//	jump_hold_timer = 0;
-	//}
+	if ( y_speed < 0 )
+	{
+		jump_hold_timer = 0;
+	}
 	
 	// Set y_speed to 0 to collide
 	y_speed = 0;
