@@ -57,13 +57,15 @@ jump_sprite = spr_player_jump; // Jump Sprite
 fall_sprite = spr_player_fall; // Fall Sprite
 crouch_sprite = spr_player_crouch; // Crouch Sprite
 roll_sprite = spr_player_roll; // Roll Sprite
+ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
+ledge_land_sprite = spr_player_ledge_grab_land; // Land on ledge Sprite
 
 // Moving
 face = 1; // Don't touch
 move_dir = 0; // Don't touch
 run_type = 0; // Don't touch
 move_speed[0] = 2; // Normal Movement Speed
-move_speed[1] = 3.5; // Movement Speed when sprint (or walk)
+move_speed[1] = 3; // Movement Speed when sprint (or walk)
 crouch_move_speed = 1.2; // Crouch movement speed
 x_speed = 0; // Don't touch
 y_speed = 0; // Don't touch
