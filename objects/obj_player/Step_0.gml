@@ -142,36 +142,47 @@ if crouching { x_speed = move_dir * crouch_move_speed; };
 // X Collision
 var _sub_pixels = .5; // How close we can get close to the wall
 
-if place_meeting( x + x_speed, y, obj_wall )
+if place_meeting(x + x_speed, y, obj_wall)
 {
-	
-	// First check if there is a slope to go up
-	if ( !place_meeting( x + x_speed, y - abs(x_speed) - 1, obj_wall ) )
-	{
-		while place_meeting( x + x_speed, y, obj_wall ) 
-		{
-			y -= _sub_pixels;
-		}
-	} else { // Next, check for ceiling slope, otherwise, do a regular collision
-		// Ceiling Slopes
-		if !place_meeting( x + x_speed, y + abs(x_speed) + 1, obj_wall )
-		{
-			while place_meeting( x + x_speed, y, obj_wall ) 
-			{
-				y += _sub_pixels;
-			}
-		} else {
-			// Pixel Perfect
-			var _pixel_check = _sub_pixels * sign(x_speed);
-			while !place_meeting( x + _pixel_check, y, obj_wall )
-			{
-				x += _pixel_check;
-			}
-	
-			// Set xspd to zero to "collide"
-			x_speed = 0;
-		}
-	}
+    // First check if there is a slope to go up
+    var _is_slope = false;
+    var _check_inst = instance_place(x + x_speed, y, obj_wall);
+    
+    if (_check_inst != noone) {
+        // Only allow slope behavior if we're actually colliding with a slope object
+        _is_slope = (_check_inst.object_index == obj_slope || object_is_ancestor(_check_inst.object_index, obj_slope));
+    }
+    
+    if (_is_slope && !place_meeting(x + x_speed, y - abs(x_speed) - 1, obj_wall))
+    {
+        while place_meeting(x + x_speed, y, obj_wall) 
+        {
+            y -= _sub_pixels;
+        }
+    } 
+    else 
+    { 
+        // Check for ceiling slope
+        if (!place_meeting(x + x_speed, y + abs(x_speed) + 1, obj_wall))
+        {
+            while place_meeting(x + x_speed, y, obj_wall) 
+            {
+                y += _sub_pixels;
+            }
+        } 
+        else 
+        {
+            // Regular wall collision - Pixel Perfect
+            var _pixel_check = _sub_pixels * sign(x_speed);
+            while !place_meeting(x + _pixel_check, y, obj_wall)
+            {
+                x += _pixel_check;
+            }
+    
+            // Set xspd to zero to "collide"
+            x_speed = 0;
+        }
+    }
 }
 
 // Go Down Slopes

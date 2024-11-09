@@ -57,8 +57,8 @@ jump_sprite = spr_player_jump; // Jump Sprite
 fall_sprite = spr_player_fall; // Fall Sprite
 crouch_sprite = spr_player_crouch; // Crouch Sprite
 roll_sprite = spr_player_roll; // Roll Sprite
-ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
-ledge_land_sprite = spr_player_ledge_grab_land; // Land on ledge Sprite
+//ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
+//ledge_land_sprite = spr_player_ledge_grab_land; // Land on ledge Sprite
 
 // Moving
 face = 1; // Don't touch

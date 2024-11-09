@@ -54,6 +54,7 @@
     {"id":{"name":"rm_devroom","path":"rooms/rm_devroom/rm_devroom.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
+    {"id":{"name":"misc","path":"scripts/misc/misc.yy",},},
     {"id":{"name":"spr_move_wall","path":"sprites/spr_move_wall/spr_move_wall.yy",},},
     {"id":{"name":"spr_moving_semi_solid_wall","path":"sprites/spr_moving_semi_solid_wall/spr_moving_semi_solid_wall.yy",},},
     {"id":{"name":"spr_npc_all","path":"sprites/spr_npc_all/spr_npc_all.yy",},},
