@@ -1,3 +1,4 @@
+// Create Event
 // Custom function for player
 function setOnGround(_val = true)
 {
@@ -43,6 +44,112 @@ function checkForSemiSolidPlatform(_x, _y)
 	return _return;
 }
 
+function checkForLedgeGrab()
+{
+    // Only check for ledge grab if we're in the air and can grab ledges
+    if (!on_ground && can_ledge_grab && state == states.FREE)
+    {
+        // Create a list to store possible ledge objects
+        var _list = ds_list_create();
+        
+        // Get the intended movement direction (either from actual movement or input)
+        var _intended_direction = (x_speed != 0) ? sign(x_speed) : move_dir;
+        
+        // Only proceed if we have an intended direction
+        if (_intended_direction != 0)
+        {
+            // Check for walls at grab position
+            var _list_size = instance_place_list(x + _intended_direction, y, obj_wall, _list, false);
+            
+            // Loop through potential ledge objects
+            for (var i = 0; i < _list_size; i++)
+            {
+                var _inst = _list[| i];
+                
+                // Skip if it's a slope or moving platform
+                if (_inst.object_index == obj_slope || 
+                    object_is_ancestor(_inst.object_index, obj_slope) ||
+                    _inst.object_index == obj_moving_plat || 
+                    object_is_ancestor(_inst.object_index, obj_moving_plat)) 
+                {
+                    continue;
+                }
+                
+                // Determine which corner to check based on intended direction
+                var _player_check_x = (_intended_direction > 0) ? bbox_right : bbox_left;
+                var _wall_check_x = (_intended_direction > 0) ? _inst.bbox_left : _inst.bbox_right;
+                
+                // Check if we're near the wall's edge horizontally
+                var _proximity_threshold = 2;
+                if (abs(_player_check_x - _wall_check_x) <= _proximity_threshold)
+                {
+                    // Check if there's no wall above the ledge
+                    if (!position_meeting(_wall_check_x, _inst.bbox_top - 1, obj_wall))
+                    {
+                        // Calculate how far we are vertically from the ideal grab position
+                        var _vertical_distance = _inst.bbox_top - bbox_top;
+                        
+                        // Different conditions based on whether we're above or below the ledge
+                        var _can_grab = false;
+                        
+                        if (_vertical_distance >= 0) {
+                            // We're below the ledge
+                            // Allow grab if we're moving up and close enough
+                            _can_grab = (_vertical_distance <= 4);
+                        } else {
+                            // We're above the ledge
+                            // Only allow grab if we're falling and very close
+                            _can_grab = (y_speed >= 0 && abs(_vertical_distance) <= 4);
+                        }
+                        
+                        if (_can_grab)
+                        {
+                            // Enter ledge state
+                            state = states.LEDGE;
+                            
+                            // Align exactly with the wall edge
+                            if (_intended_direction > 0)
+                            {
+                                x = _inst.bbox_left - (bbox_right - x);
+                            }
+                            else
+                            {
+                                x = _inst.bbox_right - (bbox_left - x);
+                            }
+                            
+                            // Align exactly with the top edge
+                            y = _inst.bbox_top - (bbox_top - y);
+                            
+                            // Reset speeds
+                            x_speed = 0;
+                            y_speed = 0;
+                            
+                            // Update face direction
+                            face = _intended_direction;
+                            
+                            // Break the loop
+                            i = _list_size;
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Clean up
+        ds_list_destroy(_list);
+    }
+}
+
+// State variable
+state = states.FREE;
+enum states {
+    FREE,
+    LEDGE
+}
+
+// Ledge Grabbing
+can_ledge_grab = true;
+
 depth = -30;
 
 // Control Setup
@@ -57,7 +164,7 @@ jump_sprite = spr_player_jump; // Jump Sprite
 fall_sprite = spr_player_fall; // Fall Sprite
 crouch_sprite = spr_player_crouch; // Crouch Sprite
 roll_sprite = spr_player_roll; // Roll Sprite
-//ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
+ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
 //ledge_land_sprite = spr_player_ledge_grab_land; // Land on ledge Sprite
 
 // Moving
