@@ -180,14 +180,14 @@ y_speed = 0; // Don't touch
 // State variables
 crouching = false;
 
-// Jumping
-grav = .275; // Gravity
-terminal_vel = 4; // Don't touch
-jump_speed = -2.75; // Decrease for higher jump height
+// Jumping (Only Change the first 4 value for jumping feel)
+grav = .3; // Gravity
+jump_speed = -2.5; // Upward Force
+jump_hold_frames = 16; // How long the player can hold jump
 jump_max = 1; // Change this value for double, triple,... jumps!
+terminal_vel = 4; // Don't touch
 jump_count = 0; // Don't touch
 jump_hold_timer = 0; // Don't touch
-jump_hold_frames = 18; // Don't touch
 on_ground = true; // Don't touch
 
 // Coyote Time
