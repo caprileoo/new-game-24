@@ -557,11 +557,34 @@ switch(state) {
                 sprite_index = crouch_sprite;
             }
         }
+		// Reset ledge animation flags when not in ledge state
+        ledge_landing = false;
+        ledge_landing_finished = false;
         break;
     }
     
     case states.LEDGE: {
-        sprite_index = ledge_idle_sprite;
+        // When first entering ledge state
+        if (!ledge_landing && !ledge_landing_finished) {
+            ledge_landing = true;
+            sprite_index = ledge_land_sprite;
+            image_index = 0;  // Start animation from beginning
+        }
+        
+        // Check if landing animation has finished
+        if (ledge_landing && sprite_index == ledge_land_sprite) {
+            if (image_index >= image_number - animationInterval()) {  // If we've reached the last frame
+                ledge_landing = false;
+                ledge_landing_finished = true;
+                sprite_index = ledge_idle_sprite;
+                image_index = 0;  // Start idle animation from beginning
+            }
+        }
+        
+        // Stay in idle animation after landing is complete
+        if (ledge_landing_finished) {
+            sprite_index = ledge_idle_sprite;
+        }
         break;
     }
 }
