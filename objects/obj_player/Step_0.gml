@@ -2,6 +2,8 @@
 // Load Controls
 getControls();
 
+if hp <= 0 { state = states.DEAD; }
+
 switch(state) {
     case states.FREE: {
 		
@@ -434,7 +436,10 @@ switch(state) {
 		|| my_floor_plat.object_index == obj_moving_plat
 		|| object_is_ancestor(my_floor_plat.object_index, obj_moving_plat)
 		|| my_floor_plat.object_index == obj_moving_semi_solid_wall
-		|| object_is_ancestor(my_floor_plat.object_index, obj_moving_semi_solid_wall) )
+		|| object_is_ancestor(my_floor_plat.object_index, obj_moving_semi_solid_wall)
+		|| my_floor_plat.object_index == obj_box
+		|| object_is_ancestor(my_floor_plat.object_index, obj_box)
+		)
 		{
 			// Snap to the top of the floor platform (un-floor our y variable so it's not choppy)
 			if !place_meeting( x, my_floor_plat.bbox_top, obj_wall )
@@ -442,24 +447,6 @@ switch(state) {
 			{
 				y = my_floor_plat.bbox_top;
 			}
-	
-			// Going up into a solid wall while on a semisolid platform (This code block maybe redundant but still don't delete it!!!)
-			//if my_floor_plat.y_speed < 0 && place_meeting( x, y + my_floor_plat.y_speed, obj_wall )
-			//{
-			//	// Get pushed down through the semisolid floor platform
-			//	if my_floor_plat.object_index == obj_semi_solid_wall || object_is_ancestor(my_floor_plat.object_index, obj_semi_solid_wall)
-			//	{
-			//		// Get pushed down through the semisolid
-			//		var _sub_pixels = .25;
-			//		while place_meeting( x, y + my_floor_plat.y_speed, obj_wall ) { y += _sub_pixels; };
-			//		// If we got pushed into a solid wall while going downwards, push ourselves back out
-			//		while place_meeting( x, y, obj_wall ){ y -= _sub_pixels; };
-			//		y = round(y);
-			//	}
-		
-			//	// Cancel the my_floor_plat variable
-			//	setOnGround(false);
-			//}
 		}
 
 		// Get pushed down through a semisolid by a moving solid platform
@@ -486,16 +473,16 @@ switch(state) {
 		}
 
 		// Death trigger by "Being crushed"
-		//if place_meeting(x, y, obj_wall)
-		//{
-		//	crush_timer++;
-		//	if crush_timer > crush_death_time
-		//	{
-		//		instance_destroy();
-		//	}
-		//} else{
-		//	crush_timer = 0;
-		//}
+		if place_meeting(x, y, obj_wall)
+		{
+			crush_timer++;
+			if crush_timer > crush_death_time
+			{
+				hp -= 999;
+			}
+		} else{
+			crush_timer = 0;
+		}
 		checkForLedgeGrab();
 		#endregion
         
@@ -572,8 +559,10 @@ switch(state) {
         }
         
         // Check if landing animation has finished
-        if (ledge_landing && sprite_index == ledge_land_sprite) {
-            if (image_index >= image_number - animationInterval()) {  // If we've reached the last frame
+        if (ledge_landing && sprite_index == ledge_land_sprite) 
+		{
+            if (image_index >= image_number - animationInterval()) // If we've reached the last frame
+			{
                 ledge_landing = false;
                 ledge_landing_finished = true;
                 sprite_index = ledge_idle_sprite;
@@ -582,11 +571,25 @@ switch(state) {
         }
         
         // Stay in idle animation after landing is complete
-        if (ledge_landing_finished) {
+        if (ledge_landing_finished) 
+		{
             sprite_index = ledge_idle_sprite;
         }
         break;
     }
+	
+	case states.DEAD: {
+		sprite_index = dead_sprite;
+		
+		// Check if dead animation has finished to destroy the player
+		if sprite_index == dead_sprite
+		{
+			if (image_index >= image_number - animationInterval())
+			{
+				instance_destroy();
+			}
+		}
+	}
 }
 
 // Set the collision mask

@@ -1,6 +1,7 @@
 // Main NPC movement
 if ( move_timer > 0 ) {
-    x_speed = move_dir * move_speed;
+	x_speed = 0;
+    //x_speed = move_dir * move_speed;
 
     // Get NPC face direction
     if ( move_dir != 0 ) {

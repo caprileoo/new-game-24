@@ -1,5 +1,5 @@
+// obj_player
 // Create Event
-// Custom function for player
 function setOnGround(_val = true)
 {
 	if ( _val == true )
@@ -66,11 +66,7 @@ function checkForLedgeGrab()
             {
                 var _inst = _list[| i];
                 
-                // Skip if it's a slope or moving platform
-                if (_inst.object_index == obj_slope || 
-                    object_is_ancestor(_inst.object_index, obj_slope) ||
-                    _inst.object_index == obj_moving_plat || 
-                    object_is_ancestor(_inst.object_index, obj_moving_plat)) 
+                if (!_inst.grabbable)
                 {
                     continue;
                 }
@@ -106,10 +102,10 @@ function checkForLedgeGrab()
                         {
                             // Enter ledge state
                             state = states.LEDGE;
-							
-							// Reset ledge animation flags when grabbing new ledge
-				            ledge_landing = false;
-				            ledge_landing_finished = false;
+                            
+                            // Reset ledge animation flags when grabbing new ledge
+                            ledge_landing = false;
+                            ledge_landing_finished = false;
                             
                             // Align exactly with the wall edge
                             if (_intended_direction > 0)
@@ -145,13 +141,13 @@ function checkForLedgeGrab()
 }
 
 // State variable
-state = states.FREE;
 enum states {
     FREE,
-    LEDGE
+    LEDGE,
+	DEAD
 }
-
-// Ledge Grabbing
+state = states.FREE;
+crouching = false;
 can_ledge_grab = true;
 ledge_landing = false;  // Track if we're currently in landing animation
 ledge_landing_finished = false;  // Track if landing animation has completed
@@ -172,6 +168,12 @@ crouch_sprite = spr_player_crouch; // Crouch Sprite
 roll_sprite = spr_player_roll; // Roll Sprite
 ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
 ledge_land_sprite = spr_player_ledge_grab_land; // Land on ledge Sprite
+dead_sprite = spr_player_dead; // Dead sprite
+//push_sprite = spr_player_push; // Pushing Sprite
+//pull_sprite = spr_player_pull; // Pulling Sprite
+
+// Stats
+hp = 100;
 
 // Moving
 face = 1; // Don't touch
@@ -182,9 +184,6 @@ move_speed[1] = 3; // Movement Speed when sprint (or walk)
 crouch_move_speed = 1.2; // Crouch movement speed
 x_speed = 0; // Don't touch
 y_speed = 0; // Don't touch
-
-// State variables
-crouching = false;
 
 // Jumping (Only Change the first 4 value for jumping feel)
 grav = .3; // Gravity
@@ -210,5 +209,5 @@ early_move_plat_x_speed = false;
 down_slop_semi_solid = noone;
 forget_semi_solid = noone;
 move_plat_x_speed = 0;
-//crush_timer = 0;
-//crush_death_time = 3;
+crush_timer = 0;
+crush_death_time = 3;
