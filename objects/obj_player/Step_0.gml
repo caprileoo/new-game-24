@@ -437,8 +437,6 @@ switch(state) {
 		|| object_is_ancestor(my_floor_plat.object_index, obj_moving_plat)
 		|| my_floor_plat.object_index == obj_moving_semi_solid_wall
 		|| object_is_ancestor(my_floor_plat.object_index, obj_moving_semi_solid_wall)
-		|| my_floor_plat.object_index == obj_box
-		|| object_is_ancestor(my_floor_plat.object_index, obj_box)
 		)
 		{
 			// Snap to the top of the floor platform (un-floor our y variable so it's not choppy)
