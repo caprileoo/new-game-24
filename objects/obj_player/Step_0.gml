@@ -2,7 +2,10 @@
 // Load Controls
 getControls();
 
-if hp <= 0 { state = states.DEAD; }
+if hp <= 0 
+{
+	state = states.DEAD;
+}
 
 switch(state) {
     case states.FREE: {
@@ -500,7 +503,7 @@ switch(state) {
 	        y_speed = jump_speed;
 	        jump_hold_timer = jump_hold_frames;
         
-	        // Add a small boost in the facing direction
+	        // Add a small boost in the face direction
 	        x_speed = face * move_speed[0];
         
 	        // Reset after a brief delay
@@ -518,6 +521,14 @@ switch(state) {
 	    }
     
 	    break;
+	}
+	
+	case states.DEAD: {
+		// Reset x and y speed
+		x_speed = 0;
+		y_speed = 0;
+		
+		break;
 	}
 }
 
@@ -553,18 +564,16 @@ switch(state) {
         if (!ledge_landing && !ledge_landing_finished) {
             ledge_landing = true;
             sprite_index = ledge_land_sprite;
-            image_index = 0;  // Start animation from beginning
         }
         
         // Check if landing animation has finished
         if (ledge_landing && sprite_index == ledge_land_sprite) 
 		{
-            if (image_index >= image_number - animationInterval()) // If we've reached the last frame
+            if (image_index >= image_number - animationInterval())
 			{
                 ledge_landing = false;
                 ledge_landing_finished = true;
                 sprite_index = ledge_idle_sprite;
-                image_index = 0;  // Start idle animation from beginning
             }
         }
         
@@ -577,16 +586,30 @@ switch(state) {
     }
 	
 	case states.DEAD: {
-		sprite_index = dead_sprite;
-		
-		// Check if dead animation has finished to destroy the player
-		if sprite_index == dead_sprite
-		{
-			if (image_index >= image_number - animationInterval())
-			{
-				instance_destroy();
-			}
-		}
+	    sprite_index = dead_sprite;
+    
+	    // Check if dead animation has finished to destroy the player
+	    if (image_index >= image_number - animationInterval())
+	    {
+	        if(!instance_exists(obj_warp) and !instance_exists(obj_tittle_trans) and !instance_exists(obj_respawn_trans)){
+	            var inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
+	            inst.target_rm = target_rm;
+	            inst.target_x = target_x;
+	            inst.target_y = target_y;
+	            inst.target_face = target_face;
+	            inst.animation_speed = animation_speed;
+	            inst.delay = delay;
+                
+	            // Store player data in a global variable before destroying
+	            global.player_respawn_data = {
+	                target_rm: target_rm,
+	                target_x: target_x,
+	                target_y: target_y,
+	                target_face: target_face
+	            };
+	        }
+	        instance_destroy();
+	    }
 	}
 }
 

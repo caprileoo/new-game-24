@@ -6,6 +6,18 @@ function controlsSetup(){
 }
 
 function getControls(){
+	if (global.input_locked) {
+		left_key = 0;
+		right_key = 0;
+		down_key = 0;
+		down_key_pressed = 0;
+		jump_key_pressed = 0;
+		jump_key = 0;
+		run_key = 0;
+		interaction_key = 0;
+		interaction_key_pressed = 0;
+		return;
+	}
 	//Direction inputs
 	left_key = keyboard_check(ord("A")) + gamepad_button_check( 0, gp_padl );
 	left_key = clamp( left_key, 0, 1 );

@@ -211,3 +211,11 @@ forget_semi_solid = noone;
 move_plat_x_speed = 0;
 crush_timer = 0;
 crush_death_time = 3;
+
+// Transition Values
+target_rm = rm_devroom;
+target_x = 32;
+target_y = 176;
+target_face = 1;
+animation_speed = 0.01;
+delay = 0;

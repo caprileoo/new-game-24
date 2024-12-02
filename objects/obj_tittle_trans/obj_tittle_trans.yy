@@ -1,17 +1,22 @@
 {
   "$GMObject":"",
-  "%Name":"obj_controller",
+  "%Name":"obj_tittle_trans",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_controller",
+  "name":"obj_tittle_trans",
   "overriddenProperties":[],
   "parent":{
-    "name":"Persistent Objects",
-    "path":"folders/Objects/Persistent Objects.yy",
+    "name":"Tittle To Game Transition",
+    "path":"folders/Objects/Warp & Transitions/Tittle To Game Transition.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_pauser",
+    "path":"objects/obj_pauser/obj_pauser.yy",
+  },
   "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
