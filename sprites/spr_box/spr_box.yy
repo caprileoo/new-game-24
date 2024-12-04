@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Testing Blocks",
-    "path":"folders/Sprites/Testing Blocks.yy",
+    "name":"Collision Blocks",
+    "path":"folders/Sprites/Collision Blocks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
