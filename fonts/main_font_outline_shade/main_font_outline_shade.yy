@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"main_font",
+  "%Name":"main_font_outline_shade",
   "AntiAlias":0,
   "applyKerning":0,
   "ascender":18,
@@ -117,10 +117,10 @@
   "last":0,
   "lineHeight":24,
   "maintainGms1Font":false,
-  "name":"main_font",
+  "name":"main_font_outline_shade",
   "parent":{
-    "name":"Base",
-    "path":"folders/Fonts/Base.yy",
+    "name":"Base with 2 effects",
+    "path":"folders/Fonts/Base with 2 effects.yy",
   },
   "pointRounding":0,
   "ranges":[
