@@ -1,3 +1,6 @@
+audio_sound_set_track_position(theme_song, 0);
+audio_sound_set_track_position(hover, 0);
+audio_play_sound(theme_song, 0, true);
 width = 640;
 height = 480;
 
