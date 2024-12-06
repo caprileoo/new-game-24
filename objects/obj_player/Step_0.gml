@@ -2,11 +2,6 @@
 // Load Controls
 getControls();
 
-if hp <= 0 
-{
-	state = states.DEAD;
-}
-
 switch(state) {
     case states.FREE: {
 		
@@ -561,15 +556,15 @@ switch(state) {
     
     case states.LEDGE: {
         // When first entering ledge state
-        if (!ledge_landing && !ledge_landing_finished) {
+        if ( !ledge_landing && !ledge_landing_finished ) {
             ledge_landing = true;
             sprite_index = ledge_land_sprite;
         }
         
         // Check if landing animation has finished
-        if (ledge_landing && sprite_index == ledge_land_sprite) 
+        if ( ledge_landing && sprite_index == ledge_land_sprite ) 
 		{
-            if (image_index >= image_number - animationInterval())
+            if ( image_index >= image_number - animationInterval() )
 			{
                 ledge_landing = false;
                 ledge_landing_finished = true;
@@ -578,7 +573,7 @@ switch(state) {
         }
         
         // Stay in idle animation after landing is complete
-        if (ledge_landing_finished) 
+        if ledge_landing_finished
 		{
             sprite_index = ledge_idle_sprite;
         }
@@ -589,9 +584,9 @@ switch(state) {
 	    sprite_index = dead_sprite;
     
 	    // Check if dead animation has finished to destroy the player
-	    if (image_index >= image_number - animationInterval())
+	    if ( image_index >= image_number - animationInterval() )
 	    {
-	        if(!instance_exists(obj_warp) and !instance_exists(obj_tittle_trans) and !instance_exists(obj_respawn_trans)){
+	        if( !instance_exists(obj_warp) and !instance_exists(obj_tittle_trans) and !instance_exists(obj_respawn_trans) ){
 	            var inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
 	            inst.target_rm = target_rm;
 	            inst.target_x = target_x;
@@ -610,9 +605,11 @@ switch(state) {
 	        }
 	        instance_destroy();
 	    }
+		break;
 	}
 }
 
 // Set the collision mask
 mask_index = mask_sprite;
-if (crouching) { mask_index = crouch_sprite; }
+if crouching { mask_index = crouch_sprite; }
+if hp <= 0 { state = states.DEAD; }

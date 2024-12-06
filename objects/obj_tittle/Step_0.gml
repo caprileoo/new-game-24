@@ -42,8 +42,16 @@ for (var i = 0; i < op_length; i++) {
 
 // Update pos based on latest action
 if (mouse_over_option != -1) {
+    // Check if pos changed when using mouse
+    if (pos != mouse_over_option) {
+        audio_play_sound(hover, 0, false);
+    }
     pos = mouse_over_option;
 } else if (up_key || down_key) {
+    // Check if pos changed when using keyboard
+    if (pos != new_pos) {
+        audio_play_sound(hover, 0, false);
+    }
     pos = new_pos;
 }
 
