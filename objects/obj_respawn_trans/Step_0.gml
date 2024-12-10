@@ -9,11 +9,11 @@ if (fade_in) {
         
         // Safely check and use global variable
         if (variable_global_exists("player_respawn_data")) {
-            var player = instance_create_layer(global.player_respawn_data.target_x, 
+            var _player = instance_create_layer(global.player_respawn_data.target_x, 
                                                 global.player_respawn_data.target_y, 
                                                 "Player", 
                                                 obj_player);
-            player.face = global.player_respawn_data.target_face;
+            _player.face = global.player_respawn_data.target_face;
             
             // Only delete if the variable exists
             global.player_respawn_data = undefined;

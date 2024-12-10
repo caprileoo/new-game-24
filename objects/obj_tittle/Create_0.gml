@@ -1,6 +1,6 @@
-audio_sound_set_track_position(theme_song, 0);
-audio_sound_set_track_position(hover, 0);
-audio_play_sound(theme_song, 0, true);
+audio_sound_set_track_position(snd_theme_song, 0);
+audio_sound_set_track_position(snd_hover, 0);
+audio_play_sound(snd_theme_song, 0, true);
 width = 640;
 height = 480;
 
@@ -21,5 +21,5 @@ option[1, 3] = "Back";
 op_length = 0;
 menu_level = 0;
 
-target_rm = second_loading_phase;
+target_rm = rm_second_loading_phase;
 final_rm = rm_devroom;

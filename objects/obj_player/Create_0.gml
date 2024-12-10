@@ -1,6 +1,6 @@
 // obj_player
 // Create Event
-function setOnGround(_val = true)
+function set_on_ground(_val = true)
 {
 	if ( _val == true )
 	{
@@ -13,7 +13,7 @@ function setOnGround(_val = true)
 	}
 }
 
-function checkForSemiSolidPlatform(_x, _y)
+function check_for_semi_solid_platform(_x, _y)
 {
 	// Create a return variable
 	var _return = noone;
@@ -25,15 +25,15 @@ function checkForSemiSolidPlatform(_x, _y)
 		var _list_size = instance_place_list(_x, _y, obj_semi_solid_wall, _list, false);
 		
 		// Loop through the colliding instances and only return one of it's top is below the player
-		for( var i = 0; i < _list_size; i++ )
+		for( var _i = 0; _i < _list_size; _i++ )
 		{
-			var _list_inst = _list[| i];
+			var _list_inst = _list[| _i];
 			if _list_inst != forget_semi_solid && floor(bbox_bottom) <= ceil( _list_inst.bbox_top - _list_inst.y_speed )
 			{
 				// Return the id of a semisolid platform
 				_return = _list_inst;
 				// Exit the loop early
-				i = _list_size;
+				_i = _list_size;
 			}
 		}
 		
@@ -44,10 +44,10 @@ function checkForSemiSolidPlatform(_x, _y)
 	return _return;
 }
 
-function checkForLedgeGrab()
+function check_for_ledge_grab()
 {
     // Only check for ledge grab if we're in the air and can grab ledges
-    if (!on_ground && can_ledge_grab && state == states.FREE)
+    if (!on_ground && can_ledge_grab && state == STATES.FREE)
     {
         // Create a list to store possible ledge objects
         var _list = ds_list_create();
@@ -62,9 +62,9 @@ function checkForLedgeGrab()
             var _list_size = instance_place_list(x + _intended_direction, y, obj_wall, _list, false);
             
             // Loop through potential ledge objects
-            for (var i = 0; i < _list_size; i++)
+            for (var _i = 0; _i < _list_size; _i++)
             {
-                var _inst = _list[| i];
+                var _inst = _list[| _i];
                 
                 if (!_inst.grabbable)
                 {
@@ -101,7 +101,7 @@ function checkForLedgeGrab()
                         if (_can_grab)
                         {
                             // Enter ledge state
-                            state = states.LEDGE;
+                            state = STATES.LEDGE;
                             
                             // Reset ledge animation flags when grabbing new ledge
                             ledge_landing = false;
@@ -128,7 +128,7 @@ function checkForLedgeGrab()
                             face = _intended_direction;
                             
                             // Break the loop
-                            i = _list_size;
+                            _i = _list_size;
                         }
                     }
                 }
@@ -141,12 +141,12 @@ function checkForLedgeGrab()
 }
 
 // State variable
-enum states {
+enum STATES {
     FREE,
     LEDGE,
 	DEAD
 }
-state = states.FREE;
+state = STATES.FREE;
 crouching = false;
 can_ledge_grab = true;
 ledge_landing = false;  // Track if we're currently in landing animation
@@ -155,7 +155,7 @@ ledge_landing_finished = false;  // Track if landing animation has completed
 depth = -30;
 
 // Control Setup
-controlsSetup();
+controls_setup();
 
 // Sprites
 mask_sprite = spr_player_idle; // Choosen Sprite to be the Collision Mask
@@ -180,7 +180,8 @@ face = 1; // Don't touch
 move_dir = 0; // Don't touch
 run_type = 0; // Don't touch
 move_speed[0] = 2; // Normal Movement Speed
-move_speed[1] = 3; // Movement Speed when sprint (or walk)
+move_speed[1] = 3; // Movement Speed Second Type
+run_timer = 0;
 crouch_move_speed = 1.2; // Crouch movement speed
 x_speed = 0; // Don't touch
 y_speed = 0; // Don't touch

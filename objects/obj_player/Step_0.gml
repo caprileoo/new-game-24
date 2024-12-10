@@ -1,9 +1,9 @@
 // Step Event
 // Load Controls
-getControls();
+get_controls();
 
 switch(state) {
-    case states.FREE: {
+    case STATES.FREE: {
 		
 		#region Behavior against moving wall
 		// Get out of solid move_plats that have positioned themselves into the player in the begin step
@@ -14,9 +14,9 @@ switch(state) {
 		var _list = ds_list_create();
 		var _list_size = instance_place_list( x, y, obj_moving_plat, _list, false );
 		// Loop through all colliding move plats
-		for( var i = 0; i < _list_size; i++ )
+		for( var _i = 0; _i < _list_size; _i++ )
 		{
-			var _list_inst = _list[| i];
+			var _list_inst = _list[| _i];
 	
 			// Find closest walls in each direction
 			// Right walls
@@ -135,9 +135,18 @@ switch(state) {
 
 		// Get my face
 		if move_dir != 0 { face = move_dir; }
-
+		
+		if run_type == 1
+		{
+			run_timer++;
+			if run_timer == room_speed * 3
+			{
+				run_type = 0;
+				run_timer = 0;
+			}
+		}
+		
 		// Get x_speed
-		run_type = run_key;
 		x_speed = move_dir * move_speed[run_type];
 
 		// Crouch and move
@@ -195,7 +204,7 @@ switch(state) {
 		if y_speed >= 0 && !place_meeting( x + x_speed, y + 1, obj_wall ) && place_meeting( x + x_speed, y + abs(x_speed) + 1, obj_wall )
 		{
 			// Check for a semisolid in the way
-			down_slop_semi_solid = checkForSemiSolidPlatform( x + x_speed, y + abs(x_speed) + 1 );
+			down_slop_semi_solid = check_for_semi_solid_platform( x + x_speed, y + abs(x_speed) + 1 );
 			// Precisely move down slope if there is not a semisolid in the way
 			if !instance_exists(down_slop_semi_solid)
 			{
@@ -217,7 +226,7 @@ switch(state) {
 			// Apply gravity to the player
 			y_speed += grav;
 			// No longer on ground
-			setOnGround(false);
+			set_on_ground(false);
 		}
 
 		// Reset/Prepare jumping variables
@@ -246,7 +255,7 @@ switch(state) {
 			jump_hold_timer = jump_hold_frames;
 	
 			// Alert that i'm no longer on ground
-			setOnGround(false);
+			set_on_ground(false);
 		}
 
 		// Jump based on the timer/holding the button
@@ -304,13 +313,13 @@ switch(state) {
 		// For high resolution/high speed (Check for a semisolid plat below the player)
 		var _y_check = y + 1 + _clamp_y_speed;
 		if instance_exists(my_floor_plat) { _y_check += max(0, my_floor_plat.y_speed); };
-		var _semi_solid = checkForSemiSolidPlatform(x, _y_check);
+		var _semi_solid = check_for_semi_solid_platform(x, _y_check);
 
 		// Loop through the colliding instance and only return on if it's top is bellow the player
-		for ( var i = 0; i < _list_size; i++ )
+		for ( var _i = 0; _i < _list_size; _i++ )
 		{
 			// Get an instance of obj_wall or obj_semi_solid_wall from the list
-			var _list_inst = _list[| i];
+			var _list_inst = _list[| _i];
 	
 			// Avoid magnetism
 			if (_list_inst != forget_semi_solid
@@ -362,7 +371,7 @@ switch(state) {
 	
 			// Collision with the ground
 			y_speed = 0;
-			setOnGround(true);
+			set_on_ground(true);
 		}
 
 		// Manualy fall through a semisolid platform
@@ -389,7 +398,7 @@ switch(state) {
 					jump_key_buffered = false;
 			
 					// No more floor platform
-					setOnGround(false);
+					set_on_ground(false);
 				}
 			}
 		}
@@ -462,7 +471,7 @@ switch(state) {
 				y++;
 				_pushed_dist++;
 			}
-			setOnGround(false);
+			set_on_ground(false);
 	
 			// If i'm still in a wall at this point, i've been crushed regardless, take me back to my start y to avoid the funk
 			if _pushed_dist > _max_push_dist { y = _start_y; };
@@ -479,13 +488,13 @@ switch(state) {
 		} else{
 			crush_timer = 0;
 		}
-		checkForLedgeGrab();
+		check_for_ledge_grab();
 		#endregion
         
         break;
     }
     
-	case states.LEDGE: {
+	case STATES.LEDGE: {
 	    // Reset speeds while in ledge state
 	    x_speed = 0;
 	    y_speed = 0;
@@ -493,7 +502,7 @@ switch(state) {
 	    // Jump off ledge
 	    if (jump_key_pressed)
 	    {
-	        state = states.FREE;
+	        state = STATES.FREE;
 	        can_ledge_grab = false; // Prevent immediate re-grab
 	        y_speed = jump_speed;
 	        jump_hold_timer = jump_hold_frames;
@@ -508,7 +517,7 @@ switch(state) {
 	    // Drop from ledge
 	    if (down_key)
 	    {
-	        state = states.FREE;
+	        state = STATES.FREE;
 	        can_ledge_grab = false;
         
 	        // Reset after a brief delay
@@ -518,7 +527,7 @@ switch(state) {
 	    break;
 	}
 	
-	case states.DEAD: {
+	case STATES.DEAD: {
 		// Reset x and y speed
 		x_speed = 0;
 		y_speed = 0;
@@ -528,7 +537,7 @@ switch(state) {
 }
 
 switch(state) {
-    case states.FREE: {
+    case STATES.FREE: {
         // Walking
         if (abs(x_speed) > 0) { sprite_index = walk_sprite; }
         // Running
@@ -554,7 +563,7 @@ switch(state) {
         break;
     }
     
-    case states.LEDGE: {
+    case STATES.LEDGE: {
         // When first entering ledge state
         if ( !ledge_landing && !ledge_landing_finished ) {
             ledge_landing = true;
@@ -564,7 +573,7 @@ switch(state) {
         // Check if landing animation has finished
         if ( ledge_landing && sprite_index == ledge_land_sprite ) 
 		{
-            if ( image_index >= image_number - animationInterval() )
+            if ( image_index >= image_number - animation_interval() )
 			{
                 ledge_landing = false;
                 ledge_landing_finished = true;
@@ -580,20 +589,20 @@ switch(state) {
         break;
     }
 	
-	case states.DEAD: {
+	case STATES.DEAD: {
 	    sprite_index = dead_sprite;
     
 	    // Check if dead animation has finished to destroy the player
-	    if ( image_index >= image_number - animationInterval() )
+	    if ( image_index >= image_number - animation_interval() )
 	    {
 	        if( !instance_exists(obj_warp) and !instance_exists(obj_tittle_trans) and !instance_exists(obj_respawn_trans) ){
-	            var inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
-	            inst.target_rm = target_rm;
-	            inst.target_x = target_x;
-	            inst.target_y = target_y;
-	            inst.target_face = target_face;
-	            inst.animation_speed = animation_speed;
-	            inst.delay = delay;
+	            var _inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
+	            _inst.target_rm = target_rm;
+	            _inst.target_x = target_x;
+	            _inst.target_y = target_y;
+	            _inst.target_face = target_face;
+	            _inst.animation_speed = animation_speed;
+	            _inst.delay = delay;
                 
 	            // Store player data in a global variable before destroying
 	            global.player_respawn_data = {
@@ -612,4 +621,4 @@ switch(state) {
 // Set the collision mask
 mask_index = mask_sprite;
 if crouching { mask_index = crouch_sprite; }
-if hp <= 0 { state = states.DEAD; }
+if hp <= 0 { state = STATES.DEAD; }

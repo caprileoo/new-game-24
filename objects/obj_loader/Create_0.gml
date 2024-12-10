@@ -1,17 +1,17 @@
-font_enable_effects(main_font_outline, true, {
+font_enable_effects(fnt_main_outline, true, {
     outlineEnable: true,
     outlineDistance: 1,
     outlineColour: c_black
 });
 
-font_enable_effects(main_font_glow, true, {
+font_enable_effects(fnt_main_glow, true, {
     glowEnable: true,
     glowEnd: 6,
     glowColour: c_red,
     glowAlpha: 4
 });
 
-font_enable_effects(main_font_shade, true, {
+font_enable_effects(fnt_main_shade, true, {
     dropShadowEnable: true,
     dropShadowSoftness: 20,
     dropShadowOffsetX: 4,
@@ -19,7 +19,7 @@ font_enable_effects(main_font_shade, true, {
     dropShadowAlpha: 1,
 });
 
-font_enable_effects(main_font_outline_glow, true, {
+font_enable_effects(fnt_main_outline_glow, true, {
     outlineEnable: true,
     outlineDistance: 1,
     outlineColour: c_black,
@@ -29,7 +29,7 @@ font_enable_effects(main_font_outline_glow, true, {
     glowAlpha: 4
 });
 
-font_enable_effects(main_font_outline_shade, true, {
+font_enable_effects(fnt_main_outline_shade, true, {
     dropShadowEnable: true,
     dropShadowSoftness: 20,
     dropShadowOffsetX: 4,
@@ -40,7 +40,7 @@ font_enable_effects(main_font_outline_shade, true, {
     outlineColour: c_black,
 });
 
-font_enable_effects(main_font_outline_shade_glow, true, {
+font_enable_effects(fnt_main_outline_shade_glow, true, {
     dropShadowEnable: true,
     dropShadowSoftness: 20,
     dropShadowOffsetX: 4,

@@ -1,11 +1,11 @@
-function controlsSetup(){
+function controls_setup(){
 	buffer_time = 5;
 	
 	jump_key_buffered = 0;
 	jump_key_buffer_timer = 0;
 }
 
-function getControls(){
+function get_controls(){
 	if (global.input_locked) {
 		left_key = 0;
 		right_key = 0;

@@ -45,7 +45,7 @@
   "origin":0,
   "parent":{
     "name":"Boosters",
-    "path":"folders/Sprites/Boosters.yy",
+    "path":"folders/Sprites/Items/Boosters.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
