@@ -1,17 +1,14 @@
-// Keyboard input checks
-var _up_key = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
-var _down_key = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
-var _ini_key = keyboard_check_pressed(vk_enter);
+// Load Controls
+get_controls();
 
 // Mouse input checks
 var _mouse_x_pos = device_mouse_x(0);
 var _mouse_y_pos = device_mouse_y(0);
-var _mouse_left_pressed = mouse_check_button_pressed(mb_left);
 
 op_length = array_length(option[menu_level]);
 
 // Keyboard navigation
-var _new_pos = pos + _down_key - _up_key;
+var _new_pos = pos + nav_down - nav_up;
 if(_new_pos >= op_length){
     _new_pos = 0;
 }
@@ -41,13 +38,13 @@ for (var _i = 0; _i < op_length; _i++) {
 }
 
 // Update pos based on latest action
-if (_mouse_over_option != -1) {
+if (_mouse_over_option != -1 && !menu_locked) {
     // Check if pos changed when using mouse
     if (pos != _mouse_over_option) {
         audio_play_sound(snd_hover, 0, false);
     }
     pos = _mouse_over_option;
-} else if (_up_key || _down_key) {
+} else if (nav_up || nav_down) && !menu_locked {
     // Check if pos changed when using keyboard
     if (pos != _new_pos) {
         audio_play_sound(snd_hover, 0, false);
@@ -56,7 +53,7 @@ if (_mouse_over_option != -1) {
 }
 
 // Interaction (keyboard or mouse)
-var _interaction_detected = (_ini_key) || (_mouse_left_pressed && _mouse_over_bbox);
+var _interaction_detected = (enter_key) || (enter_click && _mouse_over_bbox);
 
 if (_interaction_detected) {
     var _sml = menu_level;
@@ -65,6 +62,7 @@ if (_interaction_detected) {
         case 0:
             switch (pos) {
                 case 0:
+					menu_locked = true;
                     if (!instance_exists(obj_warp) && !instance_exists(obj_tittle_trans) && !instance_exists(obj_respawn_trans)) {
                         var _inst = instance_create_depth(0, 0, -9999, obj_tittle_trans);
                         _inst.target_rm = target_rm;

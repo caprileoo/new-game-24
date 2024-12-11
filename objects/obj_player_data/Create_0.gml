@@ -1,5 +1,8 @@
 depth = -9999;
 
+// Control Setup
+controls_setup();
+
 // Item Construsctor
 function create_item(_name, _desc, _icon, _effect) constructor
 {
@@ -7,6 +10,7 @@ function create_item(_name, _desc, _icon, _effect) constructor
 	description = _desc;
 	icon = _icon;
 	effect = _effect;
+	quantity = 1;
 }
 
 // Create the items
@@ -18,7 +22,7 @@ global.item_list =
 		"A Blue Ring",
 		"It's a Blue Ring! It must have some use, right?",
 		spr_blue_ring,
-		undefined
+		function(){}
 	),
 	
 	red_ring : new create_item
@@ -26,7 +30,7 @@ global.item_list =
 		"A Red Ring",
 		"It's a Red Ring! It must have some use, right?",
 		spr_red_ring,
-		undefined
+		function(){}
 	),
 	
 	key : new create_item
@@ -34,7 +38,7 @@ global.item_list =
 		"A Key",
 		"It's a Key! It must have some use, right?",
 		spr_key,
-		undefined
+		function(){}
 	),
 	
 	// Boosters
@@ -48,15 +52,24 @@ global.item_list =
 			obj_player.run_type = 1;
 			obj_player.run_timer = 0;
 			
+			global.item_list.energy.quantity -= 1;
+			
 			// Remove the item
-			array_delete(inv, selected_item, 1);
+			for ( var _i = 0 ; _i < array_length(inv) ; _i++ )
+			{
+				if (inv[_i].item_name == "Energy" && inv[_i].quantity <= 0)
+				{
+					array_delete(inv, _i, 1);
+				}
+				break;
+			}
 		}
 	),
 }
 
 // Create the inventory
 inv = array_create(0);
-inv_max = 4;
+inv_max = 3;
 selected_item = -1;
 
 // For drawing and mouse positions

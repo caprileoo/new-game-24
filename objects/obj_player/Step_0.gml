@@ -139,7 +139,7 @@ switch(state) {
 		if run_type == 1
 		{
 			run_timer++;
-			if run_timer == room_speed * 3
+			if run_timer == game_get_speed(gamespeed_fps) * 3
 			{
 				run_type = 0;
 				run_timer = 0;
@@ -563,34 +563,39 @@ switch(state) {
         break;
     }
     
-    case STATES.LEDGE: {
-        // When first entering ledge state
-        if ( !ledge_landing && !ledge_landing_finished ) {
-            ledge_landing = true;
-            sprite_index = ledge_land_sprite;
-        }
-        
-        // Check if landing animation has finished
-        if ( ledge_landing && sprite_index == ledge_land_sprite ) 
-		{
-            if ( image_index >= image_number - animation_interval() )
-			{
-                ledge_landing = false;
-                ledge_landing_finished = true;
-                sprite_index = ledge_idle_sprite;
-            }
-        }
-        
-        // Stay in idle animation after landing is complete
-        if ledge_landing_finished
-		{
-            sprite_index = ledge_idle_sprite;
-        }
-        break;
-    }
+	case STATES.LEDGE: {
+	    // When first entering ledge state
+	    if ( !ledge_landing && !ledge_landing_finished ) {
+			image_index = 0;
+	        ledge_landing = true;
+	        sprite_index = ledge_land_sprite;
+	    }
+    
+	    // Check if landing animation has finished
+	    if ( ledge_landing && sprite_index == ledge_land_sprite ) 
+	    {
+	        if ( image_index >= image_number - animation_interval() )
+	        {
+	            ledge_landing = false;
+	            ledge_landing_finished = true;
+	            sprite_index = ledge_idle_sprite;
+	        }
+	    }
+    
+	    // Stay in idle animation after landing is complete
+	    if ledge_landing_finished
+	    {
+	        sprite_index = ledge_idle_sprite;
+	    }
+	    break;
+	}
 	
 	case STATES.DEAD: {
-	    sprite_index = dead_sprite;
+		// When first entering DEAD
+	    if (sprite_index != dead_sprite) {
+	        sprite_index = dead_sprite;
+	        image_index = 0;
+	    }
     
 	    // Check if dead animation has finished to destroy the player
 	    if ( image_index >= image_number - animation_interval() )

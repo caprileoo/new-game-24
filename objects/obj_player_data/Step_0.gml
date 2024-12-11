@@ -1,3 +1,6 @@
+// Load Controls
+get_controls();
+
 var _cam_x = camera_get_view_x(view_camera[0]);
 var _cam_y = camera_get_view_y(view_camera[0]);
 
@@ -13,11 +16,9 @@ for (var _i = 0 ; _i < array_length(inv) ; _i++)
 	}
 }
 
-if selected_item != -1
+
+// Use energy
+if use_energy_key_pressed
 {
-	// Use an item
-	if mouse_check_button_pressed(mb_left)
-	{
-		inv[selected_item].effect();
-	}
+	global.item_list.energy.effect();
 }

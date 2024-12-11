@@ -1,3 +1,7 @@
+// Control Setup
+controls_setup();
+
+// Audio Setup
 audio_sound_set_track_position(snd_theme_song, 0);
 audio_sound_set_track_position(snd_hover, 0);
 audio_play_sound(snd_theme_song, 0, true);
@@ -8,6 +12,7 @@ op_border = 100;
 op_space = 20;
 
 pos = 0;
+menu_locked = false;
 
 option[0, 0] = "New Game";
 option[0, 1] = "Settings";
