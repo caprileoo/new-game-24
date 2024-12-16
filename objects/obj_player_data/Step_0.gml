@@ -20,5 +20,19 @@ for (var _i = 0 ; _i < array_length(inv) ; _i++)
 // Use energy
 if use_energy_key_pressed
 {
-	global.item_list.energy.effect();
+    // Check if energy exists in inventory first
+    var _has_energy = false;
+    for (var _i = 0; _i < array_length(inv); _i++)
+    {
+        if (inv[_i].item_name == "Energy" && inv[_i].quantity > 0)
+        {
+            _has_energy = true;
+            break;
+        }
+    }
+    
+    if (_has_energy)
+    {
+        global.item_list.energy.effect();
+    }
 }
