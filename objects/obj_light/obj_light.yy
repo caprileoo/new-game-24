@@ -26,7 +26,7 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"size","filters":[],"listItems":[],"multiselect":false,"name":"size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"256","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"color","filters":[],"listItems":[],"multiselect":false,"name":"color","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FFFFFFFF","varType":7,},
-    {"$GMObjectProperty":"v1","%Name":"str","filters":[],"listItems":[],"multiselect":false,"name":"str","rangeEnabled":true,"rangeMax":1.0,"rangeMin":-1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.5","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"str","filters":[],"listItems":[],"multiselect":false,"name":"str","rangeEnabled":true,"rangeMax":1.0,"rangeMin":-1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-0.5","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"dir","filters":[],"listItems":[],"multiselect":false,"name":"dir","rangeEnabled":true,"rangeMax":360.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"69","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"fov","filters":[],"listItems":[],"multiselect":false,"name":"fov","rangeEnabled":true,"rangeMax":360.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"360","varType":0,},
   ],

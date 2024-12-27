@@ -21,6 +21,15 @@ matrix_set(matrix_world,matrix_build(-vx,-vy,0,0,0,0,1,1,1));
 //Draw Normal (EDIT: this should be below the matrix set)
 surface_set_target(global.n_surf);
 shader_set(shd_norm);
+
+with(obj_player){
+    draw_self();	
+}
+
+with(obj_npc1){
+    draw_self();
+}
+
 shader_reset();
 surface_reset_target();
 

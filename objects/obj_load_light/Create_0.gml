@@ -8,6 +8,11 @@ display_set_gui_maximize();
 //turn of automaic drawing of application surface
 application_surface_draw_enable(false);
 
+// Camera variables
+final_cam_x = 0;
+final_cam_y = 0;
+cam_trail_speed = 0.1;
+
 //view coordinates
 vx = 0;
 vy = 0;

@@ -152,8 +152,6 @@ can_ledge_grab = true;
 ledge_landing = false;  // Track if we're currently in landing animation
 ledge_landing_finished = false;  // Track if landing animation has completed
 
-depth = -30;
-
 // Control Setup
 controls_setup();
 
