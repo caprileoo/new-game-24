@@ -40,38 +40,13 @@ global.item_list =
 		spr_key,
 		function(){}
 	),
-	
-	// Boosters
-	energy : new create_item
-	(
-		"Energy",
-		"I feel POWERFUL!!!",
-		spr_energy,
-		function()
-		{
-			obj_player.run_type = 1;
-			obj_player.run_timer = 0;
-			
-			global.item_list.energy.quantity -= 1;
-			
-			// Remove the item
-			for ( var _i = 0 ; _i < array_length(inv) ; _i++ )
-			{
-				if (inv[_i].item_name == "Energy" && inv[_i].quantity <= 0)
-				{
-					array_delete(inv, _i, 1);
-				}
-				break;
-			}
-		}
-	),
 }
 
 // Create the inventory
 inv = array_create(0);
 inv_max = 5;
-selected_item = -1;
-
-// For drawing and mouse positions
-sep = 16;
-screen_bord = 16;
+selected_item = 0;
+item_name_alpha = 0;
+item_name_timer = 0;
+show_name_duration = 180;
+fade_duration = 60;

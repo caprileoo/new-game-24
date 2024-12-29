@@ -136,6 +136,13 @@ switch(state) {
 		// Get my face
 		if move_dir != 0 { face = move_dir; }
 		
+        if use_energy_key_pressed && energy > 0
+        {
+            energy -= 1;
+            run_type = 1;
+            run_timer = 0;
+        }
+        
 		if run_type == 1
 		{
 			run_timer++;
@@ -145,6 +152,9 @@ switch(state) {
 				run_timer = 0;
 			}
 		}
+        
+        show_debug_message(energy);
+        show_debug_message(run_type);
 		
 		// Get x_speed
 		x_speed = move_dir * move_speed[run_type];

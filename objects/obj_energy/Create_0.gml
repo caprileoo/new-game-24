@@ -1,1 +1,0 @@
-item = global.item_list.energy;

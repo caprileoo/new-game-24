@@ -146,9 +146,9 @@ enum STATES {
     LEDGE,
 	DEAD
 }
-state = STATES.FREE;
-crouching = false;
-can_ledge_grab = true;
+state = STATES.FREE; // Don't touch
+crouching = false; // Don't touch
+can_ledge_grab = true; // Don't touch
 ledge_landing = false;  // Track if we're currently in landing animation
 ledge_landing_finished = false;  // Track if landing animation has completed
 
@@ -172,14 +172,15 @@ dead_sprite = spr_player_dead; // Dead sprite
 
 // Stats
 hp = 100;
+energy = 0;
 
 // Moving
 face = 1; // Don't touch
 move_dir = 0; // Don't touch
 run_type = 0; // Don't touch
+run_timer = 0; // Don't touch
 move_speed[0] = 2; // Normal Movement Speed
 move_speed[1] = 3; // Movement Speed Second Type
-run_timer = 0;
 crouch_move_speed = 1.2; // Crouch movement speed
 x_speed = 0; // Don't touch
 y_speed = 0; // Don't touch
@@ -196,25 +197,25 @@ on_ground = true; // Don't touch
 
 // Coyote Time
 // Hang Time
-coyote_hang_frames = 2;
+coyote_hang_frames = 2; // How long does the player hang on edge before falling
 coyote_hang_timer = 0; // Don't touch
 // Jump Buffer Time
-coyote_jump_frames = 6;
+coyote_jump_frames = 6; // How long the player can still jump when already off edge
 coyote_jump_timer = 0; // Don't touch
 
 // Moving Platforms
-my_floor_plat = noone;
-early_move_plat_x_speed = false;
-down_slop_semi_solid = noone;
-forget_semi_solid = noone;
-move_plat_x_speed = 0;
-crush_timer = 0;
-crush_death_time = 3;
+my_floor_plat = noone; // Don't touch
+early_move_plat_x_speed = false; // Don't touch
+down_slop_semi_solid = noone; // Don't touch
+forget_semi_solid = noone; // Don't touch
+move_plat_x_speed = 0; // Don't touch
+crush_timer = 0; // Don't touch
+crush_death_time = 3; // Don't touch
 
 // Transition Values
-target_rm = rm_devroom;
-target_x = 32;
-target_y = 176;
-target_face = 1;
-animation_speed = 0.01;
-delay = 0;
+target_rm = rm_devroom; // Don't touch
+target_x = 32; // Don't touch
+target_y = 176; // Don't touch
+target_face = 1; // Don't touch
+animation_speed = 0.01; // Don't touch
+delay = 0; // Don't touch
