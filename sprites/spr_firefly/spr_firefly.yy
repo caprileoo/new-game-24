@@ -30,7 +30,7 @@
   ],
   "name":"spr_firefly",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"NPCs",
     "path":"folders/Sprites/NPCs.yy",
@@ -104,7 +104,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":3,
-    "yorigin":3,
+    "yorigin":2,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
