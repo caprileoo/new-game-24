@@ -1,7 +1,7 @@
 depth = -9999;
 // Variables for following the player
 target = obj_player;
-follow_speed = 4;
+follow_speed = 10;
 hover_amplitude = 5;
 hover_speed = 0.1;
 hover_offset = 0;

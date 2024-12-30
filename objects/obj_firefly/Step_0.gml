@@ -17,4 +17,4 @@ y += (target_y - y) / follow_speed;
 
 // Dynamic follow speed based on distance
 var distance = point_distance(x, y, target_x, target_y);
-follow_speed = max(4, distance / 10); // Adjust this value to change the smoothness
+follow_speed = max(10, distance / 10);

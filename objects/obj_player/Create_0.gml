@@ -179,6 +179,7 @@ face = 1; // Don't touch
 move_dir = 0; // Don't touch
 run_type = 0; // Don't touch
 run_timer = 0; // Don't touch
+target_time = 3; // Booster deplete time
 move_speed[0] = 2; // Normal Movement Speed
 move_speed[1] = 3; // Movement Speed Second Type
 crouch_move_speed = 1.2; // Crouch movement speed

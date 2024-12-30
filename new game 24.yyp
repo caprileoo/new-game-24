@@ -505,6 +505,7 @@
     {"id":{"name":"spr_semi_solid_wall","path":"sprites/spr_semi_solid_wall/spr_semi_solid_wall.yy",},},
     {"id":{"name":"spr_slope","path":"sprites/spr_slope/spr_slope.yy",},},
     {"id":{"name":"spr_start_block","path":"sprites/spr_start_block/spr_start_block.yy",},},
+    {"id":{"name":"spr_tile_1","path":"sprites/spr_tile_1/spr_tile_1.yy",},},
     {"id":{"name":"spr_tile","path":"sprites/spr_tile/spr_tile.yy",},},
     {"id":{"name":"spr_tileu","path":"sprites/spr_tileu/spr_tileu.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},

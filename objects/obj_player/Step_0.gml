@@ -143,19 +143,16 @@ switch(state) {
             run_timer = 0;
         }
         
-		if run_type == 1
-		{
-			run_timer++;
-			if run_timer == game_get_speed(gamespeed_fps) * 3
-			{
-				run_type = 0;
-				run_timer = 0;
-			}
-		}
+        if run_type == 1
+        {
+            run_timer += delta_time / 1000000;
+            if run_timer >= target_time
+            {
+                run_type = 0;
+                run_timer = 0;
+            }
+        }
         
-        show_debug_message(energy);
-        show_debug_message(run_type);
-		
 		// Get x_speed
 		x_speed = move_dir * move_speed[run_type];
 
