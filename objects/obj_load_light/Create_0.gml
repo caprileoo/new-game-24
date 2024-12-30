@@ -8,6 +8,11 @@ display_set_gui_maximize();
 //turn of automaic drawing of application surface
 application_surface_draw_enable(false);
 
+// Cursor Render
+hovering = false;
+cursor_scale_x = 2;
+cursor_scale_y = 2;
+
 // Camera variables
 final_cam_x = 0;
 final_cam_y = 0;

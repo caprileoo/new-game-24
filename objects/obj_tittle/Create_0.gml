@@ -1,10 +1,16 @@
 // Control Setup
 controls_setup();
+window_set_cursor(cr_none);
 
 // Audio Setup
 audio_sound_set_track_position(snd_theme_song, 0);
 audio_sound_set_track_position(snd_hover, 0);
 audio_play_sound(snd_theme_song, 0, true);
+
+hovering = false;
+cursor_scale_x = 2;
+cursor_scale_y = 2;
+
 width = 640;
 height = 480;
 

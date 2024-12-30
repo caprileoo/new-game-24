@@ -33,8 +33,9 @@ for (var _i = 0; _i < op_length; _i++) {
         _mouse_y_pos <= _option_y + _option_h) {
         _mouse_over_option = _i;
         _mouse_over_bbox = true;
+        hovering = true;
         break;
-    }
+    } else hovering = false;
 }
 
 // Update pos based on latest action
