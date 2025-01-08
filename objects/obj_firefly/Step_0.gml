@@ -18,3 +18,7 @@ y += (target_y - y) / follow_speed;
 // Dynamic follow speed based on distance
 var distance = point_distance(x, y, target_x, target_y);
 follow_speed = max(10, distance / 10);
+
+// Breathing effect for light strength
+breathing_time += breathing_speed;
+str = lerp(str_min, str_max, (sin(breathing_time) + 1) / 2);

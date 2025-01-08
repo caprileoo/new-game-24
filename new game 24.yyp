@@ -114,7 +114,6 @@
     {"id":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},},
     {"id":{"name":"obj_load_light","path":"objects/obj_load_light/obj_load_light.yy",},},
     {"id":{"name":"obj_loader","path":"objects/obj_loader/obj_loader.yy",},},
-    {"id":{"name":"obj_moving_light","path":"objects/obj_moving_light/obj_moving_light.yy",},},
     {"id":{"name":"obj_moving_plat","path":"objects/obj_moving_plat/obj_moving_plat.yy",},},
     {"id":{"name":"obj_moving_semi_solid_wall","path":"objects/obj_moving_semi_solid_wall/obj_moving_semi_solid_wall.yy",},},
     {"id":{"name":"obj_npc1","path":"objects/obj_npc1/obj_npc1.yy",},},

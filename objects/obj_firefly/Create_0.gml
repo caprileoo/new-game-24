@@ -1,4 +1,18 @@
 depth = -9999;
+
+// Light Custom
+size = 256; // Light Size
+color = #FFFDA3; // Light Color
+str = 0.5; // Light Strength
+dir = 69; // Light Direction
+fov = 360; // Light Radius (360 is full circle, 180 is half circle)
+
+// Breathing Effect
+str_min = -1;
+str_max = 0.5;
+breathing_speed = 0.08; // Adjust this to control speed
+breathing_time = 0;
+
 // Variables for following the player
 target = obj_player;
 follow_speed = 10;
