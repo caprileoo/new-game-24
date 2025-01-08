@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_transform_coordinate",
   "isCompatibility":false,
   "isDnD":false,

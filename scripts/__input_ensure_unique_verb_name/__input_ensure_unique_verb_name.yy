@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_ensure_unique_verb_name",
   "isCompatibility":false,
   "isDnD":false,

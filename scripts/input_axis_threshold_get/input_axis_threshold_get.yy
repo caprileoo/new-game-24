@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_axis_threshold_get",
   "isCompatibility":false,
   "isDnD":false,

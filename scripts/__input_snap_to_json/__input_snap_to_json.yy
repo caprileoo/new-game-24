@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_snap_to_json",
   "isCompatibility":false,
   "isDnD":false,

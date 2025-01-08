@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_cursor_gyro_enabled_set",
   "isCompatibility":false,
   "isDnD":false,

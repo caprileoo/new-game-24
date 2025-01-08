@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_binding_gamepad_axis",
   "isCompatibility":false,
   "isDnD":false,

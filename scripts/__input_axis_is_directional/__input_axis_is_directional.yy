@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_axis_is_directional",
   "isCompatibility":false,
   "isDnD":false,

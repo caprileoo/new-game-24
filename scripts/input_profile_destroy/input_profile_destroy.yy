@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_profile_destroy",
   "isCompatibility":false,
   "isDnD":false,

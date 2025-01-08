@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_accessibility_global_cooldown_set",
   "isCompatibility":false,
   "isDnD":false,

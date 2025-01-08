@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_config_general",
   "isCompatibility":false,
   "isDnD":false,
