@@ -50,7 +50,7 @@ font_enable_effects(fnt_main_outline_shade_glow, true, {
     outlineDistance: 1,
     outlineColour: c_black,
     glowEnable: true,
-    glowEnd: 6,
-    glowColour: c_red,
-    glowAlpha: 4
+    glowEnd: 5,
+    glowColour: c_white,
+    glowAlpha: 1
 });

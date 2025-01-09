@@ -19,7 +19,8 @@ function get_controls(){
 		nav_up = 0;
 		nav_down = 0;
 		enter_key = 0;
-		enter_click = 0;
+		left_click = 0;
+        right_click = 0;
 		return;
 	}
 	//Direction inputs (In game)
@@ -49,8 +50,9 @@ function get_controls(){
 	
 	enter_key = input_check_pressed("accept");
 	
-	enter_click = input_check_pressed("left_click");
-	
+	left_click = input_check_pressed("left_click");
+    
+    right_click = input_check_pressed("right_click");
 	
 	//Jump key buffering
 	if (jump_key_pressed){

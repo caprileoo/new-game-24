@@ -10,9 +10,11 @@ function __input_config_verbs()
             
 			jump:		input_binding_key(vk_space),
 			accept:		input_binding_key(vk_space),
-            interact:	input_binding_key(ord("F")),
-            spell_cast: input_binding_key(ord("Q")),
+            interact:	input_binding_key("F"),
+            spell_cast: input_binding_key("Q"),
+        
 			left_click: input_binding_mouse_button(mb_left),
+            right_click:input_binding_mouse_button(mb_right),
         },
         
         gamepad:

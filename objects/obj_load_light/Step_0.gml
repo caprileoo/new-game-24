@@ -71,10 +71,10 @@ global.vx = vx;
 global.vy = vy;
 
 //add lights by left clicking. For testing purposes
-if (mouse_check_button_pressed(mb_left)){
+if (left_click){
 		instance_create_depth(mouse_x,mouse_y,depth,obj_light);	
 }
-if (mouse_check_button_pressed(mb_right)){
+if (right_click){
 	repeat(100)
 		instance_create_depth(mouse_x,mouse_y,depth,obj_light);	
 }

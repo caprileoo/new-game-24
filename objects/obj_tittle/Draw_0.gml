@@ -19,7 +19,8 @@ draw_set_halign(fa_left);
 for(var _i = 0; _i < op_length; _i++){
     var _color = c_white;
     if(pos == _i){
-        _color = #F29F58;
-    }
+        draw_set_font(fnt_main_outline_shade_glow);
+        _color = #48F7FF;
+    } else draw_set_font(fnt_main_outline_shade);
     draw_text_transformed_colour(x + op_border, y + op_border + op_space * _i, option[menu_level, _i], 0.5, 0.5, 0, _color, _color, _color, _color, 1);
 }
