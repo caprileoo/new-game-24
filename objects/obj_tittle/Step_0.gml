@@ -24,7 +24,7 @@ for (var _i = 0; _i < op_length; _i++) {
     var _option_x = x + op_border;
     var _option_y = y + op_border + op_space * _i;
     var _option_w = string_width(option[menu_level, _i]) * 0.5;
-    var _option_h = font_get_size(fnt_main_outline_shade) * 0.5;
+    var _option_h = font_get_size(fnt_main_shade) * 0.5;
 
     // Check if mouse is within the bounding box of this option
     if (_mouse_x_pos >= _option_x && 

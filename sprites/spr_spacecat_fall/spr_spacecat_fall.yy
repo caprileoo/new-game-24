@@ -44,8 +44,8 @@
   },
   "origin":9,
   "parent":{
-    "name":"Movement",
-    "path":"folders/Sprites/Cat/Movement.yy",
+    "name":"Cat2",
+    "path":"folders/Sprites/Players/Cat2.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
