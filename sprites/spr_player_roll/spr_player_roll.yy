@@ -34,8 +34,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Players",
-    "path":"folders/Sprites/Players.yy",
+    "name":"Cat1",
+    "path":"folders/Sprites/Players/Cat1.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

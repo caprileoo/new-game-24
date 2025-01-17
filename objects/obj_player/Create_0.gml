@@ -156,17 +156,17 @@ ledge_landing_finished = false;  // Track if landing animation has completed
 controls_setup();
 
 // Sprites
-mask_sprite = spr_player_idle; // Choosen Sprite to be the Collision Mask
-idle_sprite = spr_player_idle; // Idle Sprite
-walk_sprite = spr_player_walk; // Walk Sprite
-run_sprite = spr_player_run; // Run Sprite
-jump_sprite = spr_player_jump; // Jump Sprite
-fall_sprite = spr_player_fall; // Fall Sprite
+mask_sprite = spr_spacecat_idle; // Choosen Sprite to be the Collision Mask
+idle_sprite = spr_spacecat_idle; // Idle Sprite
+walk_sprite = spr_spacecat_walk; // Walk Sprite
+run_sprite = spr_spacecat_walk; // Run Sprite
+jump_sprite = spr_spacecat_jump; // Jump Sprite
+fall_sprite = spr_spacecat_fall; // Fall Sprite
 crouch_sprite = spr_player_crouch; // Crouch Sprite
 roll_sprite = spr_player_roll; // Roll Sprite
 ledge_idle_sprite = spr_player_ledge_grab_idle; // Idle while grabbing ledge Sprite
 ledge_land_sprite = spr_player_ledge_grab_land; // Land on ledge Sprite
-dead_sprite = spr_player_dead; // Dead sprite
+dead_sprite = spr_spacecat_dead; // Dead sprite
 //push_sprite = spr_player_push; // Pushing Sprite
 //pull_sprite = spr_player_pull; // Pulling Sprite
 
