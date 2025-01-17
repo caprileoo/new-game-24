@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_cursor_translate",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_players_get_status",
   "isCompatibility":false,
   "isDnD":false,

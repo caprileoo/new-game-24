@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_player_tick_sources",
   "isCompatibility":false,
   "isDnD":false,

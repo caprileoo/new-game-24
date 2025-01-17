@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_player_get_invalid_gamepad_bindings",
   "isCompatibility":false,
   "isDnD":false,

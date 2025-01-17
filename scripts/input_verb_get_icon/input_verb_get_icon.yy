@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_verb_get_icon",
   "isCompatibility":false,
   "isDnD":false,

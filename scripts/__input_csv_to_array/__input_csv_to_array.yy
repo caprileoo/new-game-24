@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_csv_to_array",
   "isCompatibility":false,
   "isDnD":false,

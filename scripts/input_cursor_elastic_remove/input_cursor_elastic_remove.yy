@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_cursor_elastic_remove",
   "isCompatibility":false,
   "isDnD":false,

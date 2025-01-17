@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_trigger_effect_set_strength",
   "isCompatibility":false,
   "isDnD":false,

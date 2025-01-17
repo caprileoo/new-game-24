@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_cursor_inverted_set",
   "isCompatibility":false,
   "isDnD":false,

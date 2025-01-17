@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_distance",
   "isCompatibility":false,
   "isDnD":false,

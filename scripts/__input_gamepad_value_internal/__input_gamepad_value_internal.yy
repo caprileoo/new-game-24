@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_gamepad_value_internal",
   "isCompatibility":false,
   "isDnD":false,

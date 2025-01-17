@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_check_opposing_repeat",
   "isCompatibility":false,
   "isDnD":false,

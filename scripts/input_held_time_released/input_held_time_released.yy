@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_held_time_released",
   "isCompatibility":false,
   "isDnD":false,

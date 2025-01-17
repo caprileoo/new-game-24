@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_led_pattern_get",
   "isCompatibility":false,
   "isDnD":false,
