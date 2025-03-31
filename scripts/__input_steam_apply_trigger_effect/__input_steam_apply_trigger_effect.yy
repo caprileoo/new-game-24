@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"__input_steam_apply_trigger_effect",
   "isCompatibility":false,
   "isDnD":false,
