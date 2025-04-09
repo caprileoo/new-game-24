@@ -7,7 +7,7 @@ font_enable_effects(fnt_main_outline, true, {
 font_enable_effects(fnt_main_glow, true, {
     glowEnable: true,
     glowEnd: 6,
-    glowColour: c_white,
+    glowColour: c_red,
     glowAlpha: 4
 });
 
@@ -25,7 +25,7 @@ font_enable_effects(fnt_main_outline_glow, true, {
     outlineColour: c_black,
     glowEnable: true,
     glowEnd: 6,
-    glowColour: c_white,
+    glowColour: c_red,
     glowAlpha: 4
 });
 
@@ -50,7 +50,7 @@ font_enable_effects(fnt_main_outline_shade_glow, true, {
     outlineDistance: 1,
     outlineColour: c_black,
     glowEnable: true,
-    glowEnd: 6,
+    glowEnd: 5,
     glowColour: c_white,
-    glowAlpha: 4
+    glowAlpha: 1
 });

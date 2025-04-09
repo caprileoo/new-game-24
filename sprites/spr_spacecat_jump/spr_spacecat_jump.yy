@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Cat2",
-    "path":"folders/Sprites/Players/Cat2.yy",
+    "name":"Movement",
+    "path":"folders/Sprites/Cat/Movement.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
