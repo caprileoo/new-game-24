@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_profile_reset_bindings",
   "isCompatibility":false,
   "isDnD":false,

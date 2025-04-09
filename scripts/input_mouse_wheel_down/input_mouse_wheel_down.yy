@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_mouse_wheel_down",
   "isCompatibility":false,
   "isDnD":false,

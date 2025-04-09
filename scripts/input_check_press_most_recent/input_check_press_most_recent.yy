@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_check_press_most_recent",
   "isCompatibility":false,
   "isDnD":false,

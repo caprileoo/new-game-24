@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_verb_groups_get",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_class_icon_category",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_system_tick",
   "isCompatibility":false,
   "isDnD":false,

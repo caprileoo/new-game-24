@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_class_virtual",
   "isCompatibility":false,
   "isDnD":false,

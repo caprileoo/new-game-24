@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_check_double",
   "isCompatibility":false,
   "isDnD":false,

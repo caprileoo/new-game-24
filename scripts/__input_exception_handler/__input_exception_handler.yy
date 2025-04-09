@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_exception_handler",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_binding_scan_params_set",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_multiplayer_assignment_tick",
   "isCompatibility":false,
   "isDnD":false,

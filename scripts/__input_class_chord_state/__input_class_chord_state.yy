@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_class_chord_state",
   "isCompatibility":false,
   "isDnD":false,

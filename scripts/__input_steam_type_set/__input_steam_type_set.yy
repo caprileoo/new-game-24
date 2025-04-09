@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_steam_type_set",
   "isCompatibility":false,
   "isDnD":false,
