@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_mouse_in_bounds",
   "isCompatibility":false,
   "isDnD":false,

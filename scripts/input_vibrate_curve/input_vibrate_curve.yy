@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_vibrate_curve",
   "isCompatibility":false,
   "isDnD":false,

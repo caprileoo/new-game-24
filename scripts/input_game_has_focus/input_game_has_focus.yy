@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_game_has_focus",
   "isCompatibility":false,
   "isDnD":false,

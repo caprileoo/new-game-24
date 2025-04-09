@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_check_quick_pressed_2d",
   "isCompatibility":false,
   "isDnD":false,

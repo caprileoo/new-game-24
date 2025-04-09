@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_player_gamepad_type_override_set",
   "isCompatibility":false,
   "isDnD":false,

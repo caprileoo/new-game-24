@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_mouse_coord_space_get",
   "isCompatibility":false,
   "isDnD":false,

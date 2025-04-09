@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_wrap_underflow",
   "isCompatibility":false,
   "isDnD":false,

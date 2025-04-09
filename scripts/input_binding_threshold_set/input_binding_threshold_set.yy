@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_binding_threshold_set",
   "isCompatibility":false,
   "isDnD":false,

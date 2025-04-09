@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_window_has_focus",
   "isCompatibility":false,
   "isDnD":false,

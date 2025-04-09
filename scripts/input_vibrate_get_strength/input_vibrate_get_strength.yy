@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_vibrate_get_strength",
   "isCompatibility":false,
   "isDnD":false,

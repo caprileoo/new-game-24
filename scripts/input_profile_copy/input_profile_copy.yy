@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_profile_copy",
   "isCompatibility":false,
   "isDnD":false,

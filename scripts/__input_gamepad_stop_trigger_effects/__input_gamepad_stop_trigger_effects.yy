@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"__input_gamepad_stop_trigger_effects",
   "isCompatibility":false,
   "isDnD":false,

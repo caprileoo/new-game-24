@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_player_disconnect",
   "isCompatibility":false,
   "isDnD":false,

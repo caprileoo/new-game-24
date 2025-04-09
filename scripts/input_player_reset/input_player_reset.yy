@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"input_player_reset",
   "isCompatibility":false,
   "isDnD":false,
