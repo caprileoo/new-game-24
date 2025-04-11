@@ -18,7 +18,7 @@ if (hovering) {
 }
 
 // Energy UI
-if (obj_player.energy > 0)
+if (instance_exists(obj_player) && obj_player.energy > 0)
 {
     draw_sprite_ext(spr_energy, 0, 1, 32, _sprite_scale, _sprite_scale, 0, c_white, 1);
     if (obj_player.energy > 1)

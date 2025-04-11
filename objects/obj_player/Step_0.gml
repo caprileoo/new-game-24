@@ -607,7 +607,7 @@ switch(state) {
 	    // Check if dead animation has finished to destroy the player
 	    if ( image_index >= image_number - animation_interval() )
 	    {
-	        if( !instance_exists(obj_warp) and !instance_exists(obj_tittle_trans) and !instance_exists(obj_respawn_trans) ){
+	        if( !instance_exists(obj_warp) and !instance_exists(obj_title_trans) and !instance_exists(obj_respawn_trans) ){
 	            var _inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
 	            _inst.target_rm = target_rm;
 	            _inst.target_x = target_x;

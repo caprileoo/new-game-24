@@ -13,7 +13,6 @@
     {"name":"inst_3E37A608","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_68CE4566","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_23852AEF","path":"rooms/rm_devroom/rm_devroom.yy",},
-    {"name":"inst_3FF1BEC0","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_3D55C68A","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_724C13F2","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_79EB1C67","path":"rooms/rm_devroom/rm_devroom.yy",},
@@ -22,6 +21,7 @@
     {"name":"inst_76D0A5FE","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_4130E1AB","path":"rooms/rm_devroom/rm_devroom.yy",},
     {"name":"inst_45CBEF80","path":"rooms/rm_devroom/rm_devroom.yy",},
+    {"name":"inst_5237A040","path":"rooms/rm_devroom/rm_devroom.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -65,8 +65,8 @@
         {"$GMRInstance":"v2","%Name":"inst_45CBEF80","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_45CBEF80","objectId":{"name":"obj_energy","path":"objects/obj_energy/obj_energy.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":160.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Lights","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v2","%Name":"inst_3FF1BEC0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3FF1BEC0","objectId":{"name":"obj_load_light","path":"objects/obj_load_light/obj_load_light.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":-16.0,},
         {"$GMRInstance":"v2","%Name":"inst_C01D810","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_C01D810","objectId":{"name":"obj_firefly","path":"objects/obj_firefly/obj_firefly.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":128.0,},
+        {"$GMRInstance":"v2","%Name":"inst_5237A040","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5237A040","objectId":{"name":"obj_load_light","path":"objects/obj_load_light/obj_load_light.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":-16.0,},
       ],"layers":[],"name":"Lights","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances_behind","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v2","%Name":"inst_68CE4566","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_68CE4566","objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":48.0,"y":160.0,},

@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.208969,
+  "duration":0.20897959,
   "name":"snd_hover",
   "parent":{
     "name":"Sounds",

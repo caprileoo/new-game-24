@@ -24,10 +24,12 @@ option[0, 0] = "New Game";
 option[0, 1] = "Settings";
 option[0, 2] = "Touch Some Grass";
 
-option[1, 0] = "Window Size";
-option[1, 1] = "Brightness";
-option[1, 2] = "Controls";
-option[1, 3] = "Back";
+option[1, 0] = "Display Mode";
+option[1, 1] = "Resolution";
+option[1, 2] = "Apply";
+option[1, 3] = "Brightness";
+option[1, 4] = "Controls";
+option[1, 5] = "Back";
 
 op_length = 0;
 menu_level = 0;

@@ -1,7 +1,6 @@
-font_delete(fnt_main);
-font_delete(fnt_main_outline);
-font_delete(fnt_main_glow);
-font_delete(fnt_main_shade);
-font_delete(fnt_main_outline_glow);
-font_delete(fnt_main_outline_shade);
-font_delete(fnt_main_outline_shade_glow);
+// Clean up all created fonts
+for (var i = 0; i < array_length(font_list); i++) {
+    if (font_exists(font_list[i])) {
+        font_delete(font_list[i]);
+    }
+}

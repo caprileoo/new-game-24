@@ -8,6 +8,35 @@ display_set_gui_maximize();
 //turn of automaic drawing of application surface
 application_surface_draw_enable(false);
 
+// Store original base resolution for adaptive scaling
+base_width = 320;
+base_height = 180;
+
+// Setup adaptive scaling calculation
+function calculate_adaptive_scaling() {
+    if (!instance_exists(obj_settings)) return;
+    
+    var _display_width = display_get_width();
+    var _display_height = display_get_height();
+    
+    // Update base scaling for each resolution based on display
+    for (var i = 0; i <= RESOLUTION.RES_1440P; i++) {
+        var _target_width = obj_settings.resolution_width[i];
+        var _target_height = obj_settings.resolution_height[i];
+        
+        // Calculate optimal scaling for this resolution
+        var _scale_x = _target_width / base_width;
+        var _scale_y = _target_height / base_height;
+        var _scale = min(_scale_x, _scale_y);
+        
+        // Round to nearest integer for pixel-perfect scaling
+        obj_settings.scale_factor[i] = max(1, floor(_scale));
+    }
+}
+
+// Calculate initial scaling factors
+calculate_adaptive_scaling();
+
 // Cursor Render
 hovering = false;
 cursor_scale_x = 2;
@@ -44,11 +73,11 @@ shad_surf = noone;
 
 //Background layer functions
 function BGbegin(){
-	gpu_set_colorwriteenable(1,1,1,0);
+    gpu_set_colorwriteenable(1,1,1,0);
 }
 
 function BGend(){
-	gpu_set_colorwriteenable(1,1,1,1);
+    gpu_set_colorwriteenable(1,1,1,1);
 }
 
 var _bg_layer = layer_get_id("Background");
@@ -64,17 +93,17 @@ global.vx = 0;
 global.vy = 0;
 
 function Nbegin(){
-	if (!surface_exists(global.n_surf)){
-		global.n_surf = surface_create(320,180);
-	}
-	surface_set_target(global.n_surf);
-	matrix_set(matrix_world,matrix_build(-global.vx,-global.vy,0,0,0,0,1,1,1));
-	draw_clear_alpha(c_white,0);
+    if (!surface_exists(global.n_surf)){
+        global.n_surf = surface_create(320,180);
+    }
+    surface_set_target(global.n_surf);
+    matrix_set(matrix_world,matrix_build(-global.vx,-global.vy,0,0,0,0,1,1,1));
+    draw_clear_alpha(c_white,0);
 }
 
 function Nend(){
-	surface_reset_target();
-	matrix_set(matrix_world,matrix_build(0,0,0,0,0,0,1,1,1));
+    surface_reset_target();
+    matrix_set(matrix_world,matrix_build(0,0,0,0,0,0,1,1,1));
 }
 
 var _n_layer = layer_get_id("Normal");

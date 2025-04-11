@@ -1,4 +1,4 @@
-if(place_meeting(x, y, obj_player) and !instance_exists(obj_warp) and !instance_exists(obj_tittle_trans) and !instance_exists(obj_respawn_trans)){
+if(place_meeting(x, y, obj_player) and !instance_exists(obj_warp) and !instance_exists(obj_title_trans) and !instance_exists(obj_respawn_trans)){
 	var _inst = instance_create_depth(0, 0, -9999, obj_warp);
 	_inst.target_x = target_x;
 	_inst.target_y = target_y;
